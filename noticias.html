@@ -1,207 +1,209 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="David Perfeito Leôncio" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Escola de Saúde Pública do Piauí</title>
-  </head>
-  <body>
-    <header>
-      <div class="header-content">
-        <div class="logo">
-          <img src="imagem/logo.svg" alt="Logo Escola de Saúde" />
-          <span>Escola de Saúde Pública do Piauí</span>
-        </div>
-        <div
-          class="hamburger"
-          onclick="toggleMenu()"
-          tabindex="0"
-          role="button"
-          aria-label="Abrir menu"
-          aria-controls="menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <nav>
-          <ul id="menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">Sobre</a></li>
-            <li><a href="#courses">Cursos</a></li>
-            <li class="has-submenu">
-              <a
-                href="#services"
-                class="submenu-toggle"
-                data-submenu="true"
-                onclick="toggleSubmenu(event)"
-                >Serviços ▾</a
-              >
-              <ul class="submenu" aria-label="Submenu Serviços">
-                <li><a href="#noticias">Notícias</a></li>
-                <li><a href="#eventos">Eventos</a></li>
-                <li><a href="#projetos">Projetos</a></li>
-              </ul>
-            </li>
-            <li><a href="#contact">Contato</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
 
-    <main class="main-content">
-      <!-- Seção Notícias -->
-      <section class="news-section" id="noticias">
-        <h2>Notícias</h2>
-        <div class="news-grid">
-          <article class="news-item"><a href="noticia1.html" target="_blank" text-decoration="none">
-            <img
-              class="news-thumb"
-              src="imagem/webinario.jpeg"
-              alt="Notícia 1"
-            />
-            <div class="news-body">
-              <div class="news-meta">Publicado em 04 mar 2026 • Notícias</div>
-              <h4 class="news-title">Novo curso em Gestão de Crises</h4>
-            </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="David Perfeito Leôncio" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Escola de Saúde Pública do Piauí</title>
+</head>
+
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="imagem/logo.svg" alt="Logo Escola de Saúde" />
+        <span>Escola de Saúde Pública do Piauí</span>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()" tabindex="0" role="button" aria-label="Abrir menu"
+        aria-controls="menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#courses">Cursos</a></li>
+          <li class="has-submenu">
+            <a href="#services" class="submenu-toggle" data-submenu="true" onclick="toggleSubmenu(event)">Serviços ▾</a>
+            <ul class="submenu" aria-label="Submenu Serviços">
+              <li><a href="#noticias">Notícias</a></li>
+              <li><a href="#eventos">Eventos</a></li>
+              <li><a href="#projetos">Projetos</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Seção Notícias -->
+    <section class="news-section" id="noticias" style="text-align: center; margin-bottom: 30px">
+      <h2 class="news-title" style="font-size: 32px; color: var(--color-primary); margin-bottom: 10px;">
+        Notícias
+      </h2>
+      <div class="news-grid">
+        <article class="news-item">
+          <a href="noticias/100320226_1000.html" target="_blank" text-decoration="none">
+            <img class="news-thumb" src="imagem/CursoEgepi.png" alt="Notícia 1" style="width: auto;" />
           </a>
-          </article>
-
-          <article class="news-item">
-            <img class="news-thumb" src="imagem/banner02.jpg" alt="Notícia 2" />
-            <div class="news-body">
-              <div class="news-meta">Publicado em 15 Jan 2026 • Notícias</div>
-              <h4 class="news-title">Parceria com Universidade Federal</h4>
-              <p>
-                Firmamos parceria para pesquisa em vigilância epidemiológica com
-                a UF local.
-              </p>
-            </div>
-          </article>
-
-            <article class="news-item">
-                <img
-                class="news-thumb"
-                src="imagem/indisponivel.png"
-                alt="Notícia ultima"
-                />
-                <div class="news-body">
-                <div class="news-meta">Publicado em 06 Mar 2026 • Notícias</div>
-                <h4 class="news-title">Lançamento do curso de Equidade em Saúde</h4>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- Seção Contato -->
-    <section class="contact-section" id="contact">
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Fale Conosco</h3>
-          <div class="contact-success" id="contactSuccess">
-            Mensagem enviada com sucesso. Entraremos em contato em breve.
+          <div class="news-body">
+            <div class="news-meta">Publicado em 10 Mar 2026 • Notícias</div>
+            <h4 class="news-title">Curso Escrita Institucional e Comunicação Oficial Inteligente</h4>
+            <p>Aprenda a produzir documentos claros e eficazes para uso institucional.</p>
           </div>
-          <form id="contactForm" class="contact-form">
-            <label for="name">Nome</label>
-            <input type="text" id="name" name="name" required />
+        </article>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
+        <article class="news-item">
+          <a href="noticias/080320226_1000.html" target="_blank" text-decoration="none">
+            <img class="news-thumb" src="imagem/Encontros09032026.png" alt="Notícia 3" style="width: auto;" />
+          </a>
+          <div class="news-body">
+            <div class="news-meta">Publicado em 09 Mar 2026 • Notícias</div>
+            <h4 class="news-title">Encontro Educacional e Práticas Pedagógicas no Cotidiano do SUS</h4>
+            <p>Cursos e workshops para capacitação de profissionais da saúde. destinadas a docentes das Escolas de Saúde
+              Pública e trabalhadores do SUS que desenvolvem atividades educativas em seus territórios.</p>
+          </div>
+        </article>
 
-            <label for="message">Mensagem</label>
-            <textarea id="message" name="message" required></textarea>
+        <article class="news-item">
+          <a href="noticias/080320226_0900.html" target="_blank" text-decoration="none">
+            <img class="news-thumb" src="imagem/conviteMulhuer.jpeg" alt="Notícia 2" style="width: auto;" />
+          </a>
+          <div class="news-body">
+            <div class="news-meta">Publicado em 06 Mar 2026 • Notícias</div>
+            <h4 class="news-title">Convite para Participação</h4>
+            <p>Estamos convidando todos os profissionais da saúde para participar do nosso próximo encontro educacional.</p>
+          </div>
+        </article>
 
-            <button class="btn-small" type="submit">Enviar</button>
-          </form>
-        </div>
-
-        <aside class="contact-info">
-          <h3>Informações</h3>
-          <p>
-            <strong>Email:</strong>
-            <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a>
-          </p>
-          <p>
-            <strong>Telefone:</strong>
-            <a href="tel:+558632215000">(86) 3XXX-5000</a>
-          </p>
-          <p><strong>Endereço:</strong> Teresina, Piauí - Brasil</p>
-          <p><strong>Horário:</strong> Seg-Sex: 7h às 13h</p>
-        </aside>
+        <article class="news-item">
+          <a href="noticias/080320226_0800.html" target="_blank" text-decoration="none">
+            <img class="news-thumb" src="imagem/webinario.jpeg" alt="Notícia 4" style="width: auto;" />
+          </a>
+          <div class="news-body">
+            <div class="news-meta">Publicado em 04 Mar 2026 • Notícias</div>
+            <h4 class="news-title">Webinário "Mulheres em Espaços de Gestão no SUS"</h4>
+            <p>Participe do nosso webinário sobre mulheres em espaços de gestão no SUS.</p>
+          </div>
+        </article>
       </div>
+
+
     </section>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Sobre a Escola</h3>
-          <p>
-            A Escola de Saúde Pública do Piauí é uma instituição dedicada à
-            formação de profissionais qualificados na área de saúde pública, com
-            excelência e inovação.
-          </p>
-          <div class="social-links">
-            <a href="#" title="Facebook" aria-label="Facebook">f</a>
-            <a href="#" title="Instagram" aria-label="Instagram">📷</a>
-            <a href="#" title="LinkedIn" aria-label="LinkedIn">in</a>
-          </div>
-        </div>
+  </main>
 
-        <div class="footer-section">
-          <h3>Links Rápidos</h3>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">Sobre Nós</a></li>
-            <li><a href="#courses">Cursos</a></li>
-            <li><a href="#services">Serviços</a></li>
-            <li><a href="#contact">Contato</a></li>
-          </ul>
+  <!-- Seção Contato -->
+  <section class="contact-section" id="contact">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Fale Conosco</h3>
+        <div class="contact-success" id="contactSuccess">
+          Mensagem enviada com sucesso. Entraremos em contato em breve.
         </div>
+        <form id="contactForm" class="contact-form">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" required />
 
-        <div class="footer-section">
-          <h3>Cursos</h3>
-          <ul>
-            <li><a href="#">Equidade</a></li>
-            <li><a href="#">.</a></li>
-          </ul>
-        </div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
 
-        <div class="footer-section">
-          <h3>Contato</h3>
-          <ul>
-            <li>
-              <strong>Email:</strong>
-              <a href="mailto:contato@escolasaude.pi.gov.br"
-                >contato@escolasaude.pi.gov.br</a
-              >
-            </li>
-            <li>
-              <strong>Telefone:</strong>
-              <a href="tel:+558632215000">(86) 3221-5000</a>
-            </li>
-            <li><strong>Endereço:</strong> Teresina, Piauí - Brasil</li>
-            <li><strong>Horário:</strong> Seg-Sex: 8h às 17h</li>
-          </ul>
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <button class="btn-small" type="submit">Enviar</button>
+        </form>
+      </div>
+
+      <aside class="contact-info">
+        <h3>Informações</h3>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a>
+        </p>
+        <p>
+          <strong>Telefone:</strong>
+          <a href="tel:+558632215000">(86) 3XXX-5000</a>
+        </p>
+        <p><strong>Endereço:</strong> Teresina, Piauí - Brasil</p>
+        <p><strong>Horário:</strong> Seg-Sex: 7h às 13h</p>
+      </aside>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Sobre a Escola</h3>
+        <p>
+          A Escola de Saúde Pública do Piauí é uma instituição dedicada à
+          formação de profissionais qualificados na área de saúde pública, com
+          excelência e inovação.
+        </p>
+        <div class="social-links">
+          <a href="#" title="Facebook" aria-label="Facebook">f</a>
+          <a href="#" title="Instagram" aria-label="Instagram">📷</a>
+          <a href="#" title="LinkedIn" aria-label="LinkedIn">in</a>
         </div>
       </div>
 
-      <div class="footer-divider"></div>
-
-      <div class="footer-bottom">
-        <p>
-          &copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos
-          reservados.
-        </p>
-        <p>
-          Desenvolvido com David Perfeito Leôncio para a Escola de Saúde Pública
-          do Piauí
-        </p>
+      <div class="footer-section">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Sobre Nós</a></li>
+          <li><a href="#courses">Cursos</a></li>
+          <li><a href="#services">Serviços</a></li>
+          <li><a href="#contact">Contato</a></li>
+        </ul>
       </div>
-    </footer>
 
-    <script src="script.js"></script>
-  </body>
+      <div class="footer-section">
+        <h3>Cursos</h3>
+        <ul>
+          <li><a href="#">Equidade</a></li>
+          <li><a href="#">.</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-section">
+        <h3>Contato</h3>
+        <ul>
+          <li>
+            <strong>Email:</strong>
+            <a href="mailto:contato@escolasaude.pi.gov.br">contato@escolasaude.pi.gov.br</a>
+          </li>
+          <li>
+            <strong>Telefone:</strong>
+            <a href="tel:+558632215000">(86) 3221-5000</a>
+          </li>
+          <li><strong>Endereço:</strong> Teresina, Piauí - Brasil</li>
+          <li><strong>Horário:</strong> Seg-Sex: 8h às 17h</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+      <p>
+        &copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos
+        reservados.
+      </p>
+      <p>
+        Desenvolvido com David Perfeito Leôncio para a Escola de Saúde Pública
+        do Piauí
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
 </html>
