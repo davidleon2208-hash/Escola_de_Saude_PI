@@ -37,12 +37,11 @@
                 href="#services"
                 class="submenu-toggle"
                 data-submenu="true"
-                onclick="toggleSubmenu(event)"
+                onclick="toggleSubmenu(event)" 
                 >Serviços ▾</a
               >
               <ul class="submenu" aria-label="Submenu Serviços">
                 <li><a href="#noticias">Notícias</a></li>
-                <li><a href="#eventos">Eventos</a></li>
                 <li><a href="galeria.html">Galeria</a></li>
               </ul>
             </li>
@@ -57,7 +56,7 @@
       <div class="carousel-container">
         <div class="carousel" id="carousel">
           <div class="carousel-item active">
-            <img src="imagem/banner01.png" alt="Banner 1" />
+            <img src="imagem/Encontros09032026.png" alt="Banner 1" />
           </div>
           <div class="carousel-item">
             <img src="imagem/banner02.jpg" alt="Banner 2" />
@@ -171,50 +170,48 @@
         id="noticias"
         style="text-align: center; margin-bottom: 30px"
       >
-        <h2
-          style="font-size: 32px;
-            color: var(--color-primary);
-            margin-bottom: 10px;">
+        <h2 class="news-title" style="font-size: 32px; color: var(--color-primary); margin-bottom: 10px;">
           Notícias
         </h2>
         <div class="news-grid">
-          <article class="news-item">
-            <a href="noticias.html" target="_blank" text-decoration="none">
-              <img
-                class="news-thumb"
-                src="imagem/webinario.jpeg"
-                alt="Notícia 1"
-              />
+         <article class="news-item">
+            <a href="noticias/080320226_1000.html" target="_blank" text-decoration="none">
+              <img class="news-thumb" src="imagem/Encontros09032026.png" alt="Notícia 3" style="width: auto;"/>
               <div class="news-body">
-                <div class="news-meta">Publicado em 04 mar 2026 • Notícias</div>
-                <h4 class="news-title">Novo curso em Gestão de Crises</h4>
+                <div class="news-meta">Publicado em 09 Mar 2026 • Notícias</div>
+                <h4 class="news-title">Encontro Educacional e Práticas Pedagógicas no Cotidiano do SUS</h4>
               </div>
             </a>
           </article>
 
           <article class="news-item">
-            <img class="news-thumb" src="imagem/banner02.jpg" alt="Notícia 2" />
-            <div class="news-body">
-              <div class="news-meta">Publicado em 15 Jan 2026 • Notícias</div>
-              <h4 class="news-title">Parceria com Universidade Federal</h4>
-              <p>
-                Firmamos parceria para pesquisa em vigilância epidemiológica com
-                a UF local.
-              </p>
-            </div>
+            <a href="noticias/080320226_0900.html" target="_blank" text-decoration="none">
+              <img class="news-thumb" src="imagem/conviteMulhuer.jpeg" alt="Notícia 2" style="width: auto;"/>
+              <div class="news-body">
+                <div class="news-meta">Publicado em 06 Mar 2026 • Notícias</div>
+                <h4 class="news-title">Convite para Participação</h4>
+              </div>
+            </a>
           </article>
 
           <article class="news-item">
-            <img class="news-thumb" src="imagem/banner03.png" alt="Notícia 3" />
-            <div class="news-body">
-              <div class="news-meta">Publicado em 02 Dez 2025 • Notícias</div>
-              <h4 class="news-title">Relatório de Impacto 2025</h4>
-              <p>
-                Publicamos o relatório anual com os principais resultados das
-                ações implementadas.
-              </p>
-            </div>
+            <a href="noticias/080320226_0800.html" target="_blank" text-decoration="none">
+              <img
+                class="news-thumb"
+                src="imagem/webinario.jpeg"
+                alt="Notícia 1"
+                style="width: auto;"
+              />
+              <div class="news-body">
+                <div class="news-meta">Publicado em 04 Mar 2026 • Notícias</div>
+                <h4 class="news-title">Webinário "Mulheres em Espaços de Gestão no SUS"</h4>
+              </div>
+            </a>
           </article>
+        </div>
+
+        <div class="text-center mt-18">
+          <a class="btn" href="noticias.html" target="_blank">Saiba mais</a>
         </div>
       </section>
 
@@ -329,52 +326,6 @@
         </div>
       </section>
 
-      <!-- Seção Eventos -->
-      <section class="events-section" id="eventos">
-        <div class="events-grid">
-          <div class="event-card">
-            <img
-              src="imagem/Seminário Regional de Saúde.png"
-              alt="Seminário Regional de Saúde"
-              class="event-image"
-            />
-            <div class="event-date">10 Fev</div>
-            <h4 class="event-title">Seminário Regional de Saúde</h4>
-            <p>
-              Debates sobre políticas públicas e estratégias locais de
-              prevenção.
-            </p>
-          </div>
-
-          <div class="event-card">
-            <img
-              src="imagem/oficina.png"
-              alt="Oficina de Epidemiologia"
-              class="event-image"
-            />
-            <div class="event-date">22 Mar</div>
-            <h4 class="event-title">Oficina de Epidemiologia</h4>
-            <p>
-              Oficina prática para profissionais da atenção primária sobre
-              vigilância.
-            </p>
-          </div>
-
-          <div class="event-card">
-            <img
-              src="imagem/Encontro de Pesquisadores.png"
-              alt="Encontro de Pesquisadores"
-              class="event-image"
-            />
-            <div class="event-date">05 Abr</div>
-            <h4 class="event-title">Encontro de Pesquisadores</h4>
-            <p>
-              Apresentação de projetos e resultados de pesquisa aplicada em
-              saúde pública.
-            </p>
-          </div>
-        </div>
-      </section>
     </main>
 
     <!-- Seção Contato -->

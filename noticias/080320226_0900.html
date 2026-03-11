@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="David Perfeito Leôncio" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>Escola de Saúde Pública do Piauí</title>
+  </head>
+  <body>
+    <header>
+      <div class="header-content">
+        <div class="logo">
+          <img src="imagem/logo.svg" alt="Logo Escola de Saúde" />
+          <span>Escola de Saúde Pública do Piauí</span>
+        </div>
+        <div
+          class="hamburger"
+          onclick="toggleMenu()"
+          tabindex="0"
+          role="button"
+          aria-label="Abrir menu"
+          aria-controls="menu"
+          aria-expanded="false"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <nav>
+          <ul id="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Sobre</a></li>
+            <li><a href="#courses">Cursos</a></li>
+            <li class="has-submenu">
+              <a
+                href="#services"
+                class="submenu-toggle"
+                data-submenu="true"
+                onclick="toggleSubmenu(event)"
+                >Serviços ▾</a
+              >
+              <ul class="submenu" aria-label="Submenu Serviços">
+                <li><a href="#noticias">Notícias</a></li>
+                <li><a href="#eventos">Eventos</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+              </ul>
+            </li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- Seção Notícias -->
+      <section class="news-section" id="noticias">
+        <h2 class="news-title">Notícias</h2>
+        <div
+          class="publice"
+          style="
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            text-align: right;
+          "
+        >
+          Publicado em 08 mar 2026 • Notícias
+        </div>
+        <article>
+          <video
+            src="/video/diaDaMulher.mp4"
+            style="
+              width: 100%;
+              max-width: 400px;
+              height: auto;
+              margin-bottom: 20px;
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+            "
+          >dia internacional da Mulher</video>
+          <h3 class="alert">Dia Internacional da Mulher</h3>
+
+          <p>
+            Neste Dia Internacional da Mulher, celebramos a força, a dedicação e a sensibilidade de cada servidora da Escola de Saúde Pública. O trabalho que vocês realizam diariamente vai muito além das funções profissionais: ele contribui para transformar vidas, fortalecer o
+            cuidado em saúde e construir uma sociedade mais justa e humana. Que esta data seja um momento de reconhecimento, respeito e valorização de todas as mulheres que, com competência e compromisso, fazem a diferença em nossa instituição e na vida de tantas pessoas. Recebam
+            nossa gratidão e admiração.<br>
+            <span>Feliz Dia da Mulher!🌷</span>
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Sobre a Escola</h3>
+          <p>
+            A Escola de Saúde Pública do Piauí é uma instituição dedicada à
+            formação de profissionais qualificados na área de saúde pública, com
+            excelência e inovação.
+          </p>
+          <div class="social-links">
+            <a href="#" title="Facebook" aria-label="Facebook">f</a>
+            <a href="#" title="Instagram" aria-label="Instagram">📷</a>
+            <a href="#" title="LinkedIn" aria-label="LinkedIn">in</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h3>Links Rápidos</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Sobre Nós</a></li>
+            <li><a href="#courses">Cursos</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#contact">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Cursos</h3>
+          <ul>
+            <li><a href="#">Equidade</a></li>
+            <li><a href="#">.</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <ul>
+            <li>
+              <strong>Email:</strong>
+              <a href="mailto:contato@escolasaude.pi.gov.br"
+                >contato@escolasaude.pi.gov.br</a
+              >
+            </li>
+            <li>
+              <strong>Telefone:</strong>
+              <a href="tel:+558632215000">(86) 3221-5000</a>
+            </li>
+            <li><strong>Endereço:</strong> Teresina, Piauí - Brasil</li>
+            <li><strong>Horário:</strong> Seg-Sex: 8h às 17h</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos
+          reservados.
+        </p>
+        <p>
+          Desenvolvido com David Perfeito Leôncio para a Escola de Saúde Pública
+          do Piauí
+        </p>
+      </div>
+    </footer>
+
+    <script src=""></script>
+  </body>
+</html>
