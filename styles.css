@@ -568,11 +568,7 @@ nav a:hover {
 }
 
 .course-card.hidden {
-  opacity: 0;
-  transform: scale(0.9);
-  visibility: hidden;
-  position: absolute;
-  pointer-events: none;
+  display: none;
 }
 
 @media (max-width: 600px) {

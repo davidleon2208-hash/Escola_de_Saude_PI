@@ -148,25 +148,26 @@
         btn.addEventListener('click', () => {
           const filter = btn.getAttribute('data-filter');
           
-          // Remover classe active de todos os botões
           document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-          
-          // Adicionar classe active ao botão clicado
           btn.classList.add('active');
           
-          // Filtrar cursos
           const courses = document.querySelectorAll('.course-card');
           courses.forEach(course => {
             const status = course.getAttribute('data-status');
             
+            let shouldBeVisible = false;
             if (filter === 'all') {
-              course.style.display = 'block';
+              shouldBeVisible = true;
             } else if (filter === 'available' && status === 'available') {
-              course.style.display = 'block';
+              shouldBeVisible = true;
             } else if (filter === 'unavailable' && status === 'unavailable') {
-              course.style.display = 'block';
+              shouldBeVisible = true;
+            }
+
+            if (shouldBeVisible) {
+              course.classList.remove('hidden');
             } else {
-              course.style.display = 'none';
+              course.classList.add('hidden');
             }
           });
         });
