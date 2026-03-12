@@ -191,16 +191,16 @@
         document.body.style.overflow = 'auto'; // Re-enable scrolling
       }
 
-      // Add click listeners to all gallery images
-      document.querySelectorAll('.news-thumb, .gallery-thumb').forEach(img => {
-        img.style.cursor = 'pointer';
-        img.addEventListener('click', function(e) {
+      // Add click listeners to gallery images using Event Delegation
+      document.addEventListener('click', function(e) {
+        // Only target gallery images for the modal
+        const image = e.target.closest('.gallery-thumb');
+        if (image) {
           e.preventDefault();
-          e.stopPropagation();
-          const imageSrc = this.src;
-          const imageAlt = this.alt;
+          const imageSrc = image.src;
+          const imageAlt = image.alt;
           openImageModal(imageSrc, imageAlt);
-        });
+        }
       });
 
       // Close modal when clicking overlay
