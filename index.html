@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,7 +7,6 @@
   <link rel="stylesheet" href="styles.css" />
   <title>Escola de Saúde Pública do Piauí</title>
 </head>
-
 <body>
   <header>
     <div class="header-content">
@@ -16,8 +14,7 @@
         <img src="imagem/logo.svg" alt="Logo Escola de Saúde" />
         <span>Escola de Saúde Pública do Piauí</span>
       </div>
-      <div class="hamburger" onclick="toggleMenu()" tabindex="0" role="button" aria-label="Abrir menu"
-        aria-controls="menu" aria-expanded="false">
+      <div class="hamburger" onclick="toggleMenu()" tabindex="0" role="button" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -26,38 +23,39 @@
         <ul id="menu">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">Sobre</a></li>
+          <li><a href="#noticias">Notícias</a></li>
+          <li><a href="#equipe">Equipe</a></li>
           <li><a href="#courses">Cursos</a></li>
-          <li class="has-submenu">
-            <a href="#services" class="submenu-toggle" data-submenu="true" onclick="toggleSubmenu(event)">Serviços ▾</a>
-            <ul class="submenu" aria-label="Submenu Serviços">
-              <li><a href="#noticias">Notícias</a></li>
-              <li><a href="galeria.html">Galeria</a></li>
-            </ul>
-          </li>
           <li><a href="#contact">Contato</a></li>
         </ul>
       </nav>
+      <div class="header-actions">
+        <button class="btn-login" type="button" onclick="openLoginModal()">Entrar</button>
+        <div class="user-status" id="userStatus" hidden>
+          <span id="userGreeting">Olá</span>
+          <button class="btn-logout" type="button" onclick="logoutUser()">Sair</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="main-content">
-    <!-- Carrossel de Banners -->
     <div class="carousel-container">
       <div class="carousel" id="carousel">
         <div class="carousel-item active">
-          <img src="imagem/Encontros09032026.png" alt="Banner 1" />
+          <img src="imagem/Encontros09032026.png" alt="Encontro educacional" />
         </div>
         <div class="carousel-item">
-          <img src="imagem/banner02.jpg" alt="Banner 2" />
+          <img src="imagem/banner02.jpg" alt="Gestão em saúde" />
         </div>
         <div class="carousel-item">
-          <img src="imagem/banner03.png" alt="Banner 3" />
+          <img src="imagem/banner03.png" alt="Programas da escola" />
         </div>
         <div class="carousel-item">
-          <img src="imagem/banner04.png" alt="Banner 4" />
+          <img src="imagem/banner04.png" alt="Cursos e ações" />
         </div>
         <div class="carousel-item">
-          <img src="imagem/Banner de Equidade.png" alt="Banner 5" />
+          <img src="imagem/Banner de Equidade.png" alt="Equidade em saúde" />
         </div>
       </div>
 
@@ -75,236 +73,224 @@
 
     <section class="ban" id="home">
       <h1>Bem-vindo à Escola de Saúde Pública</h1>
-      <p>Formando profissionais de excelência na área da saúde pública</p>
+      <p>Formando profissionais de excelência na área da saúde pública.</p>
     </section>
 
-    <!-- Seção Sobre Nós -->
     <section class="about-section" id="about">
       <div class="about-content">
         <div class="about-header">
           <h2>Sobre Nós</h2>
-          <p>
-            Conheça a história e missão da Escola de Saúde Pública do Piauí
-          </p>
+          <p>Conheça a missão, os valores e a atuação da Escola de Saúde Pública do Piauí.</p>
         </div>
 
         <div class="about-grid">
           <div class="about-card">
-            <h3><span class="about-card-icon"></span>Missão</h3>
-            <p>
-              Formar profissionais qualificados e comprometidos com a saúde
-              pública, através de ensino inovador e práticas baseadas em
-              evidências científicas.
-            </p>
+            <h3>Missão</h3>
+            <p>Formar profissionais qualificados e comprometidos com a saúde pública, por meio de ensino inovador e práticas baseadas em evidências.</p>
           </div>
-
           <div class="about-card">
-            <h3><span class="about-card-icon"></span>Visão</h3>
-            <p>
-              Ser referência nacional na formação de gestores e profissionais
-              de saúde pública, contribuindo para a melhoria da qualidade de
-              vida da população.
-            </p>
+            <h3>Visão</h3>
+            <p>Ser referência nacional na formação de gestores e profissionais da saúde, contribuindo para a melhoria da qualidade de vida da população.</p>
           </div>
-
           <div class="about-card">
-            <h3><span class="about-card-icon"></span>Valores</h3>
-            <p>
-              Excelência, ética profissional, comprometimento com a
-              comunidade, inovação e respeito à diversidade são nossos pilares
-              fundamentais.
-            </p>
+            <h3>Valores</h3>
+            <p>Excelência, ética profissional, inovação, responsabilidade social e respeito à diversidade como pilares permanentes.</p>
           </div>
         </div>
 
         <div class="about-description">
           <h3>Nossa História</h3>
-          <p>
-            A Escola de Saúde Pública do Piauí foi criada com o objetivo de
-            preparar profissionais para os desafios complexos do setor de
-            saúde pública. Com mais de duas décadas de atuação, temos formado
-            milhares de profissionais que atuam em diversos municípios e
-            estados do Brasil.
-          </p>
-
-          <p>
-            Nossas atividades abrangem a educação continuada, pesquisa, e a
-            assistência técnica para órgãos de saúde, sempre mantendo o
-            compromisso com a excelência acadêmica e a responsabilidade
-            social.
-          </p>
-
-          <h3 class="mt-30 mb-15">Nossos Destaques</h3>
+          <p>A escola atua na qualificação de trabalhadores do SUS, no apoio técnico às redes de saúde e na construção de projetos educacionais conectados às necessidades do território.</p>
+          <p>Com foco em formação continuada, pesquisa e inovação, a instituição amplia o acesso a conhecimentos estratégicos para gestores, docentes e profissionais da rede pública.</p>
+          <h3>Nossos Destaques</h3>
           <ul>
-            <li>
-              Corpo docente experiente com mestrado e doutorado em áreas da
-              saúde pública
-            </li>
-            <li>
-              Cursos presenciais, semipresenciais e à distância acessíveis a
-              todo o Brasil
-            </li>
-            <li>
-              Parceria com universidades e instituições de saúde de renome
-              nacional
-            </li>
+            <li>Corpo técnico com experiência em ensino, pesquisa e gestão pública.</li>
+            <li>Cursos presenciais, híbridos e trilhas de aperfeiçoamento para o SUS.</li>
+            <li>Atuação alinhada às demandas regionais da saúde pública piauiense.</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- Seção Notícias -->
-    <section class="news-section" id="noticias" style="text-align: center; margin-bottom: 30px">
-      <h2 class="news-title" style="font-size: 32px; color: var(--color-primary); margin-bottom: 10px;">
-        Notícias
-      </h2>
+    <section class="news-section" id="noticias">
+      <div class="section-heading">
+        <span class="section-kicker">Atualizações</span>
+        <h2>Notícias</h2>
+        <p>Acompanhe os principais destaques institucionais, eventos e publicações da escola.</p>
+      </div>
+
+      <article class="news-featured">
+        <div class="news-featured-media">
+          <img src="imagem/wohshooE.jpeg" alt="II Workshop de Vigilância Entomológica do Piauí" />
+        </div>
+        <div class="news-featured-content">
+          <span class="news-badge">Destaque da semana</span>
+          <div class="news-meta">Publicado em 10 Mar 2026 • Notícias</div>
+          <h3>II Workshop de Vigilância Entomológica do Piauí</h3>
+          <p>Encontro voltado ao fortalecimento das ações de vigilância, com atualização técnica, troca de experiências e integração entre profissionais da rede de saúde.</p>
+          <a class="btn" href="noticias/100320226_1100.html" target="_blank">Ler notícia</a>
+        </div>
+      </article>
+
       <div class="news-grid">
         <article class="news-item">
-          <a href="/noticias/100320226_1100.html" target="_blank" text-decoration="none">
-            <img class="news-thumb" src="imagem/wohshooE.jpeg" alt="Notícia 2" style="width: auto;" />
+          <a href="noticias/100320226_1100.html" target="_blank" class="news-link">
+            <img class="news-thumb" src="imagem/wohshooE.jpeg" alt="Workshop de vigilância" />
           </a>
           <div class="news-body">
             <div class="news-meta">Publicado em 10 Mar 2026 • Notícias</div>
             <h4 class="news-title">II Workshop de Vigilância Entomológica do Piauí</h4>
+            <p class="news-excerpt">Programação com foco em vigilância, prevenção e organização das equipes técnicas.</p>
           </div>
         </article>
-
         <article class="news-item">
-          <a href="noticias/100320226_1000.html" target="_blank" style="text-decoration: none; color: inherit;">
-            <img class="news-thumb" src="imagem/CursoEgepi.png" alt="Notícia 3" style="width: auto;" />
+          <a href="noticias/100320226_1000.html" target="_blank" class="news-link">
+            <img class="news-thumb" src="imagem/CursoEgepi.png" alt="Curso de escrita institucional" />
           </a>
           <div class="news-body">
             <div class="news-meta">Publicado em 10 Mar 2026 • Notícias</div>
             <h4 class="news-title">Curso Escrita Institucional e Comunicação Oficial Inteligente</h4>
+            <p class="news-excerpt">Formação voltada à comunicação oficial, clareza textual e produção de documentos.</p>
           </div>
         </article>
-
         <article class="news-item">
-          <a href="noticias/080320226_1000.html" target="_blank" style="text-decoration: none; color: inherit;">
-            <img class="news-thumb" src="imagem/Encontros09032026.png" alt="Notícia 3" style="width: auto;" />
+          <a href="noticias/080320226_1000.html" target="_blank" class="news-link">
+            <img class="news-thumb" src="imagem/Encontros09032026.png" alt="Encontro educacional" />
           </a>
           <div class="news-body">
             <div class="news-meta">Publicado em 09 Mar 2026 • Notícias</div>
             <h4 class="news-title">Encontro Educacional e Práticas Pedagógicas no Cotidiano do SUS</h4>
+            <p class="news-excerpt">Debate sobre educação permanente, práticas pedagógicas e qualificação no SUS.</p>
           </div>
         </article>
-
       </div>
 
-      <div class="text-center mt-18">
-        <a class="btn" href="noticias.html" target="_blank">Saiba mais</a>
+      <div class="news-actions">
+        <a class="btn" href="noticias.html">Ver todas as notícias</a>
       </div>
     </section>
 
-    <!-- Seção Equipe -->
     <section class="team-section" id="equipe">
-      <div class="team-header">
+      <div class="section-heading section-heading-left">
+        <span class="section-kicker">Pessoas</span>
         <h2>Nossa Equipe</h2>
-        <p>
-          Profissionais experientes e comprometidos que atuam na formação de
-          outros profissionais de saúde, garantindo alto padrão técnico e
-          pedagógico.
-        </p>
-        <p>
-          Conheça a direção e coordenação da nossa escola. Veja a equipe
-          completa clicando em "Saiba mais".
-        </p>
+        <p>Profissionais experientes que conduzem ensino, pesquisa, gestão e apoio institucional.</p>
+      </div>
+
+      <div class="team-highlights">
+        <div class="team-highlight">
+          <strong>Gestão acadêmica</strong>
+          <span>Coordenação focada em ensino, pesquisa e apoio institucional.</span>
+        </div>
+        <div class="team-highlight">
+          <strong>Atuação integrada</strong>
+          <span>Equipes conectadas às necessidades da rede pública de saúde.</span>
+        </div>
+        <div class="team-highlight">
+          <strong>Equipe ampliada</strong>
+          <span>Consulte a composição completa da escola no modal detalhado.</span>
+        </div>
       </div>
 
       <div class="team-grid">
-        <div class="team-card">
+        <div class="team-card team-card-featured">
           <div class="team-avatar">
-            <img class="team-photo" src="imagem/colaboradores/Dra Mirian.png"
-              alt="Mirian Perpétua Palha Dias Parente" />
+            <img class="team-photo" src="imagem/colaboradores/Dra Mirian.png" alt="Mirian Perpétua Palha Dias Parente" />
             <span class="team-initials">MP</span>
           </div>
+          <span class="team-tag">Direção</span>
           <div class="team-name">Mirian Perpétua Palha Dias Parente</div>
           <div class="team-role">Diretora da ESPPI</div>
+          <p class="team-description">Lidera as ações estratégicas da escola e a articulação com a rede pública de saúde.</p>
         </div>
-
         <div class="team-card">
           <div class="team-avatar">
-            <img class="team-photo" src="imagem/colaboradores/Luciana_Saraiva.png" alt="Luciana Saraiva E Silva" />
+            <img class="team-photo" src="imagem/colaboradores/Luciana_Saraiva.png" alt="Luciana Saraiva e Silva" />
             <span class="team-initials">LS</span>
           </div>
-          <div class="team-name">Luciana Saraiva E Silva</div>
+          <span class="team-tag">Ensino</span>
+          <div class="team-name">Luciana Saraiva e Silva</div>
           <div class="team-role">Gerente de Ensino e Pesquisa</div>
+          <p class="team-description">Coordena ações pedagógicas e apoia o desenvolvimento dos programas formativos.</p>
         </div>
-
         <div class="team-card">
           <div class="team-avatar">
-            <img class="team-photo" src="imagem/colaboradores/Gildemar.png" alt="Gildemar Paulo Da Silva" />
+            <img class="team-photo" src="imagem/colaboradores/Gildemar.png" alt="Gildemar Paulo da Silva" />
             <span class="team-initials">GP</span>
           </div>
-          <div class="team-name">Gildemar Paulo Da Silva</div>
+          <span class="team-tag">Coordenação</span>
+          <div class="team-name">Gildemar Paulo da Silva</div>
           <div class="team-role">Coordenador de Ensino e Pesquisa</div>
+          <p class="team-description">Conecta o planejamento acadêmico às necessidades de qualificação do SUS.</p>
         </div>
       </div>
 
       <div class="text-center mt-18">
-        <button class="btn-small" onclick="openTeamModal()">
-          Saiba mais
-        </button>
+        <button class="btn-small" type="button" onclick="openTeamModal()">Ver equipe completa</button>
       </div>
     </section>
 
-    <!-- Seção Cursos -->
     <section class="courses-section" id="courses">
-      <div class="courses-header">
+      <div class="section-heading">
+        <span class="section-kicker">Formação</span>
         <h2>Nossos Cursos</h2>
-        <p>
-          Oferecemos formações contínuas e especializações voltadas para
-          profissionais de saúde e gestores.
-        </p>
+        <p>Oferecemos formações contínuas e especializações voltadas para profissionais de saúde e gestores.</p>
+      </div>
+
+      <div class="course-overview">
+        <div class="course-overview-card">
+          <strong>Formações ativas</strong>
+          <span>Turmas com foco em gestão, equidade e vigilância.</span>
+        </div>
+        <div class="course-overview-card">
+          <strong>Modalidades flexíveis</strong>
+          <span>Opções presenciais, intensivas e trilhas de aperfeiçoamento.</span>
+        </div>
+        <div class="course-overview-card">
+          <strong>Atendimento rápido</strong>
+          <span>Manifestação de interesse e mais informações em poucos cliques.</span>
+        </div>
       </div>
 
       <div class="courses-grid">
-        <article class="course-card" data-status="unavailable">
-          <img class="course-thumb" src="imagem/indisponivel.png" alt="Curso Saúde Pública - Em breve" />
-          <h4 class="course-title">Saúde Pública</h4>
-          <p class="course-desc">
-            Curso básico e avançado sobre políticas públicas de saúde,
-            planejamento e atenção primária.
-          </p>
-          <div class="course-footer">
-            <span class="course-duration">40h</span>
-          </div>
-        </article>
-
         <article class="course-card" data-status="available">
           <img class="course-thumb" src="imagem/Banner de Equidade.png" alt="Curso Equidade em Saúde" />
+          <span class="course-pill">Inscrições abertas</span>
           <h4 class="course-title">Equidade em Saúde</h4>
-          <p class="course-desc">
-            Formação para compreensão e implementação de políticas públicas de
-            equidade em saúde.
-          </p>
+          <p class="course-desc">Formação para compreensão e implementação de políticas públicas de equidade em saúde.</p>
           <div class="course-footer">
             <span class="course-duration">60h</span>
+            <a class="btn" href="cursos.html">Ver detalhes</a>
+          </div>
+        </article>
+        <article class="course-card" data-status="unavailable">
+          <img class="course-thumb" src="imagem/indisponivel.png" alt="Curso Saúde Pública - Em breve" />
+          <span class="course-pill course-pill-soon">Em breve</span>
+          <h4 class="course-title">Saúde Pública</h4>
+          <p class="course-desc">Curso sobre políticas públicas, planejamento, atenção primária e organização dos serviços.</p>
+          <div class="course-footer">
+            <span class="course-duration">40h</span>
+            <button class="btn" type="button" disabled>Lista de espera</button>
           </div>
         </article>
       </div>
-      <div class="text-center mt-18">
-        <a class="btn" href="cursos.html" target="_blank">Saiba mais</a>
+
+      <div class="courses-actions">
+        <a class="btn" href="cursos.html">Saiba mais</a>
       </div>
     </section>
-
   </main>
 
-  <!-- Seção Contato -->
   <section class="contact-section" id="contact">
     <div class="contact-grid">
       <div class="contact-card">
         <h3>Fale Conosco</h3>
-        <div class="contact-success" id="contactSuccess">
-          Mensagem enviada com sucesso. Entraremos em contato em breve.
-        </div>
+        <div class="contact-success" id="contactSuccess">Mensagem enviada com sucesso. Entraremos em contato em breve.</div>
         <form id="contactForm" class="contact-form" action="https://formspree.io/f/mbdzjgky" method="POST" novalidate>
-          <label for="email">
-            Seu email:
+          <label for="email">Seu email:
             <input id="email" type="email" name="email" required placeholder="exemplo@email.com" />
           </label>
-          <label for="message">
-            Sua mensagem:
+          <label for="message">Sua mensagem:
             <textarea id="message" name="message" required placeholder="Como podemos ajudar?" minlength="10"></textarea>
           </label>
           <button type="submit" class="btn">Enviar</button>
@@ -313,14 +299,8 @@
 
       <aside class="contact-info">
         <h3>Informações</h3>
-        <p>
-          <strong>Email:</strong>
-          <a href="mailto:contato@escolasaude.pi.gov.br">contato@escolasaude.pi.gov.br</a>
-        </p>
-        <p>
-          <strong>Telefone:</strong>
-          <a href="tel:+558632215000">(86) XXXX-0000</a>
-        </p>
+        <p><strong>Email:</strong> <a href="mailto:contato@escolasaude.pi.gov.br">contato@escolasaude.pi.gov.br</a></p>
+        <p><strong>Telefone:</strong> <a href="tel:+558632215000">(86) 3221-5000</a></p>
         <p><strong>Endereço:</strong> Teresina, Piauí - Brasil</p>
         <p><strong>Horário:</strong> Seg-Sex: 8h às 17h</p>
       </aside>
@@ -331,48 +311,30 @@
     <div class="footer-content">
       <div class="footer-section">
         <h3>Sobre a Escola</h3>
-        <p>
-          A Escola de Saúde Pública do Piauí é uma instituição dedicada à
-          formação de profissionais qualificados na área de saúde pública, com
-          excelência e inovação.
-        </p>
-        <div class="social-links">
-          <a href="#" title="Facebook" aria-label="Facebook">f</a>
-          <a href="#" title="Instagram" aria-label="Instagram">📷</a>
-          <a href="#" title="LinkedIn" aria-label="LinkedIn">in</a>
-        </div>
+        <p>A Escola de Saúde Pública do Piauí é uma instituição dedicada à formação de profissionais qualificados na área de saúde pública, com excelência e inovação.</p>
       </div>
-
       <div class="footer-section">
         <h3>Links Rápidos</h3>
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#about">Sobre Nós</a></li>
           <li><a href="#courses">Cursos</a></li>
-          <li><a href="#services">Serviços</a></li>
+          <li><a href="#noticias">Notícias</a></li>
           <li><a href="#contact">Contato</a></li>
         </ul>
       </div>
-
       <div class="footer-section">
         <h3>Cursos</h3>
         <ul>
-          <li><a href="#courses">Equidade em Saúde</a></li>
-          <li><a href="#courses">Saúde Pública</a></li>
+          <li><a href="cursos.html">Equidade em Saúde</a></li>
+          <li><a href="cursos.html">Vigilância Epidemiológica</a></li>
         </ul>
       </div>
-
       <div class="footer-section">
         <h3>Contato</h3>
         <ul>
-          <li>
-            <strong>Email:</strong>
-            <a href="mailto:contato@escolasaude.pi.gov.br">contato@escolasaude.pi.gov.br</a>
-          </li>
-          <li>
-            <strong>Telefone:</strong>
-            <a href="tel:+558632215000">(86) 3221-5000</a>
-          </li>
+          <li><strong>Email:</strong> <a href="mailto:contato@escolasaude.pi.gov.br">contato@escolasaude.pi.gov.br</a></li>
+          <li><strong>Telefone:</strong> <a href="tel:+558632215000">(86) 3221-5000</a></li>
           <li><strong>Endereço:</strong> Teresina, Piauí - Brasil</li>
           <li><strong>Horário:</strong> Seg-Sex: 8h às 17h</li>
         </ul>
@@ -382,143 +344,57 @@
     <div class="footer-divider"></div>
 
     <div class="footer-bottom">
-      <p>
-        &copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos
-        reservados.
-      </p>
-      <p>
-        Desenvolvido com David Perfeito Leôncio para a Escola de Saúde Pública
-        do Piauí
-      </p>
+      <p>&copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos reservados.</p>
+      <p>Desenvolvido por David Perfeito Leôncio para a Escola de Saúde Pública do Piauí.</p>
     </div>
   </footer>
 
-  <!-- Modal com equipe completa -->
   <div id="teamModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="teamModalTitle">
     <div class="modal-content">
       <div class="modal-header">
         <h3 id="teamModalTitle">Equipe Completa</h3>
-        <button aria-label="Fechar" onclick="closeTeamModal()">✕</button>
+        <button aria-label="Fechar" type="button" onclick="closeTeamModal()">×</button>
       </div>
       <ul class="team-list">
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/Dra Mirian.png" alt="Mirian Perpétua" /><strong>Mirian
-            Perpétua Palha Dias Parente</strong><span> Diretora da ESPPI</span>
-          <p>
-            é responsável por conduzir as políticas de educação, pesquisa e
-            extensão da escola, alinhando-as às necessidades da Secretaria da
-            Saúde do Piauí.
-          </p>
-        </li>
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/Luciana_Saraiva.png"
-            alt="Luciana Saraiva" /><strong>Luciana Saraiva E Silva</strong><span> Gerente de Ensino e Pesquisa</span>
-          <p>
-            Responsável por gerenciar toda a administração da instituição de
-            ensino, esse profissional foca o seu trabalho em ações que ajudam
-            a garantir um aprendizado significativo dos alunos a partir de uma
-            educação de excelência, com uma equipe de professores
-            qualificados.
-          </p>
-        </li>
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/Gildemar.png" alt="Gildemar Paulo" /><strong>Gildemar
-            Paulo Da Silva</strong><span> Coordenador de Ensino e Pesquisa</span>
-          <p>
-            é um profissional estratégico que atua na interseção entre a
-            produção de conhecimento científico, a qualificação profissional e
-            as necessidades do Sistema Único de Saúde (SUS). Esta função
-            combina gestão acadêmica com foco em saúde coletiva.
-          </p>
-        </li>
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/Jose_Antonio.png" alt="José Antônio" /><strong>José
-            Antônio de Almendra Carvalho</strong><span> Supervisor Pedagógico</span>
-          <p>
-            é responsável por supervisionar o desenvolvimento pedagógico e
-            acadêmico dos alunos, garantindo a qualidade do ensino e a
-            implementação de práticas educacionais eficazes.
-          </p>
-        </li>
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/Andreia.png" alt="Andréa Nunes" /><strong>Andréa Nunes
-            de Carvalho Mendes</strong><span> Agente Ocupacional de Nível Superior</span>
-          <p>
-            Responsável por atuar em atividades de apoio técnico e
-            administrativo, contribuindo para o desenvolvimento de ações
-            educacionais e de saúde.
-          </p>
-        </li>
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/Gisele.png" alt="Gisele Gomes" /><strong>Gisele Gomes
-            de Oliveira Leal</strong><span> Agente Ocupacional de Nível Superior</span>
-          <p>
-            é responsável por atuar em atividades de apoio técnico e
-            administrativo, contribuindo para o desenvolvimento de ações
-            educacionais e de saúde.
-          </p>
-        </li>
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/an.png" alt="Luciana Amorim" /><strong>Luciana Amorim
-            Rodrigues Lima</strong><span> Técnico de Apoio Administrativo</span>
-          <p>
-            é responsável por apoiar as atividades administrativas da
-            instituição, garantindo o funcionamento eficiente dos processos
-            operacionais.
-          </p>
-        </li>
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/Erico.png" alt="Érico Nogueira" /><strong>Érico
-            Nogueira de Areia Leão</strong><span> Assistente Administrativo</span>
-          <p>
-            é responsável por apoiar as atividades administrativas da
-            instituição, garantindo o funcionamento eficiente dos processos
-            operacionais.
-          </p>
-        </li>
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/Adelline.png" alt="Addeline Pereira" /><strong>Addeline
-            Pereira Borges</strong><span> Auxiliar Administrativo</span>
-          <p>
-            é responsável por apoiar as atividades administrativas da
-            instituição, garantindo o funcionamento eficiente dos processos
-            operacionais.
-          </p>
-        </li>
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/Claudete.png" alt="Creusa Maria" /><strong>Creusa Maria
-            Costa de Oliveira</strong><span> Agente Técnico de Serviço</span>
-          <p>
-            é responsável por atuar em atividades técnicas de apoio ao
-            serviço, contribuindo para o desenvolvimento de ações educacionais
-            e de saúde.
-          </p>
-        </li>
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/Jacira.png" alt="Jacira Gonçalves" /><strong>Jacira
-            Gonçalves de Oliveira</strong><span> Assistente de serviço I</span>
-          <p>
-            é responsável por apoiar as atividades administrativas da
-            instituição, garantindo o funcionamento eficiente dos processos
-            operacionais.
-          </p>
-        </li>
-        <li>
-          <img class="team-list-photo" src="imagem/colaboradores/David.png" alt="David Perfeito" /><strong>David
-            Perfeito Leôncio</strong><span> — Desenvolvedor Web</span>
-          <p>
-            é responsável por desenvolver e manter sistemas web, garantindo a
-            funcionalidade e a usabilidade das plataformas digitais da
-            instituição.
-          </p>
-        </li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/Dra Mirian.png" alt="Mirian Perpétua" /><strong>Mirian Perpétua Palha Dias Parente</strong><span>Diretora da ESPPI</span></li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/Luciana_Saraiva.png" alt="Luciana Saraiva" /><strong>Luciana Saraiva e Silva</strong><span>Gerente de Ensino e Pesquisa</span></li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/Gildemar.png" alt="Gildemar Paulo" /><strong>Gildemar Paulo da Silva</strong><span>Coordenador de Ensino e Pesquisa</span></li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/Jose_Antonio.png" alt="José Antônio" /><strong>José Antônio de Almendra Carvalho</strong><span>Supervisor Pedagógico</span></li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/Andreia.png" alt="Andréa Nunes" /><strong>Andréa Nunes de Carvalho Mendes</strong><span>Agente Ocupacional de Nível Superior</span></li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/Gisele.png" alt="Gisele Gomes" /><strong>Gisele Gomes de Oliveira Leal</strong><span>Agente Ocupacional de Nível Superior</span></li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/an.png" alt="Luciana Amorim" /><strong>Luciana Amorim Rodrigues Lima</strong><span>Técnico de Apoio Administrativo</span></li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/Erico.png" alt="Érico Nogueira" /><strong>Érico Nogueira de Areia Leão</strong><span>Assistente Administrativo</span></li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/Adelline.png" alt="Addeline Pereira" /><strong>Addeline Pereira Borges</strong><span>Auxiliar Administrativo</span></li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/Claudete.png" alt="Creusa Maria" /><strong>Creusa Maria Costa de Oliveira</strong><span>Agente Técnico de Serviço</span></li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/Jacira.png" alt="Jacira Gonçalves" /><strong>Jacira Gonçalves de Oliveira</strong><span>Assistente de Serviço I</span></li>
+        <li><img class="team-list-photo" src="imagem/colaboradores/David.png" alt="David Perfeito" /><strong>David Perfeito Leôncio</strong><span>Desenvolvedor Web</span></li>
       </ul>
       <div class="text-right mt-12">
-        <button class="btn-small" onclick="closeTeamModal()">Fechar</button>
+        <button class="btn-small" type="button" onclick="closeTeamModal()">Fechar</button>
       </div>
     </div>
   </div>
+
+  <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="modal-content modal-content-login">
+      <div class="modal-header">
+        <h3 id="loginModalTitle">Login do Usuário</h3>
+        <button aria-label="Fechar" type="button" onclick="closeLoginModal()">×</button>
+      </div>
+      <p class="login-intro">Acesse sua área para acompanhar cursos, novidades e comunicações da escola.</p>
+      <form id="loginForm" class="login-form">
+        <label for="loginName">Nome</label>
+        <input id="loginName" name="loginName" type="text" placeholder="Seu nome completo" required />
+        <label for="loginEmail">Email</label>
+        <input id="loginEmail" name="loginEmail" type="email" placeholder="usuario@exemplo.com" required />
+        <label for="loginPassword">Senha</label>
+        <input id="loginPassword" name="loginPassword" type="password" placeholder="Digite sua senha" minlength="6" required />
+        <button class="btn" type="submit">Entrar</button>
+        <p class="login-feedback" id="loginFeedback" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
-
 </html>

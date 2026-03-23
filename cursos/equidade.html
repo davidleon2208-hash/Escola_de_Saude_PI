@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="David Perfeito Leôncio" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Cursos - Escola de Saúde Pública do Piauí</title>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="imagem/logo.svg" alt="Logo Escola de Saúde" />
+        <span>Escola de Saúde Pública do Piauí</span>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()" tabindex="0" role="button" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">Sobre</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="index.html#equipe">Equipe</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-login" type="button" onclick="openLoginModal()">Entrar</button>
+        <div class="user-status" id="userStatus" hidden>
+          <span id="userGreeting">Olá</span>
+          <button class="btn-logout" type="button" onclick="logoutUser()">Sair</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <p>Para</p>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Sobre a Escola</h3>
+        <p>A Escola de Saúde Pública do Piauí é dedicada à formação de profissionais qualificados na área de saúde pública.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contato</h3>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:contato@escolasaude.pi.gov.br">contato@escolasaude.pi.gov.br</a></li>
+          <li><strong>Telefone:</strong> <a href="tel:+558632215000">(86) 3221-5000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="modal-content modal-content-login">
+      <div class="modal-header">
+        <h3 id="loginModalTitle">Login do Usuário</h3>
+        <button aria-label="Fechar" type="button" onclick="closeLoginModal()">×</button>
+      </div>
+      <p class="login-intro">Acesse sua área para acompanhar cursos, novidades e comunicações da escola.</p>
+      <form id="loginForm" class="login-form">
+        <label for="loginName">Nome</label>
+        <input id="loginName" name="loginName" type="text" placeholder="Seu nome completo" required />
+        <label for="loginEmail">Email</label>
+        <input id="loginEmail" name="loginEmail" type="email" placeholder="usuario@exemplo.com" required />
+        <label for="loginPassword">Senha</label>
+        <input id="loginPassword" name="loginPassword" type="password" placeholder="Digite sua senha" minlength="6" required />
+        <button class="btn" type="submit">Entrar</button>
+        <p class="login-feedback" id="loginFeedback" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

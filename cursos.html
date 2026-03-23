@@ -1,264 +1,166 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="David Perfeito Leôncio" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Nossos Cursos - Escola de Saúde Pública do Piauí</title>
-  </head>
-  <body>
-    <header>
-      <div class="header-content">
-        <div class="logo">
-          <img src="imagem/logo.svg" alt="Logo Escola de Saúde" />
-          <span>Escola de Saúde Pública do Piauí</span>
-        </div>
-        <div
-          class="hamburger"
-          onclick="toggleMenu()"
-          tabindex="0"
-          role="button"
-          aria-label="Abrir menu"
-          aria-controls="menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <nav>
-          <ul id="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">Sobre</a></li>
-            <li><a href="index.html#courses">Cursos</a></li>
-            <li class="has-submenu">
-              <a
-                href="index.html#services"
-                class="submenu-toggle"
-                data-submenu="true"
-                onclick="toggleSubmenu(event)"
-                >Serviços ▾</a
-              >
-              <ul class="submenu" aria-label="Submenu Serviços">
-                <li><a href="index.html#noticias">Notícias</a></li>
-                <li><a href="index.html#eventos">Eventos</a></li>
-              </ul>
-            </li>
-            <li><a href="index.html#contact">Contato</a></li>
-          </ul>
-        </nav>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="David Perfeito Leôncio" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Cursos - Escola de Saúde Pública do Piauí</title>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="imagem/logo.svg" alt="Logo Escola de Saúde" />
+        <span>Escola de Saúde Pública do Piauí</span>
       </div>
-    </header>
-
-    <main class="main-content">
-            <!-- Seção Cursos -->
-      <section class="courses-section" id="courses">
-        <div class="courses-header">
-          <h2>Nossos Cursos</h2>
-          <p>
-            Oferecemos formações contínuas e especializações voltadas para
-            profissionais de saúde e gestores. Escolha abaixo e entre em contato conosco via WhatsApp.
-          </p>
+      <div class="hamburger" onclick="toggleMenu()" tabindex="0" role="button" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#about">Sobre</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="index.html#equipe">Equipe</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="header-actions">
+        <button class="btn-login" type="button" onclick="openLoginModal()">Entrar</button>
+        <div class="user-status" id="userStatus" hidden>
+          <span id="userGreeting">Olá</span>
+          <button class="btn-logout" type="button" onclick="logoutUser()">Sair</button>
         </div>
+      </div>
+    </div>
+  </header>
 
-        <!-- Filtro de Cursos -->
-        <div class="courses-filter">
-          <button class="filter-btn active" data-filter="all">Todos</button>
-          <button class="filter-btn" data-filter="available">Disponíveis</button>
-          <button class="filter-btn" data-filter="unavailable">Em Breve</button>
+  <main class="main-content">
+    <section class="courses-section" id="courses">
+      <div class="section-heading">
+        <span class="section-kicker">Catálogo</span>
+        <h2>Nossos Cursos</h2>
+        <p>Reorganizamos a área de cursos para destacar status, carga horária e caminho de inscrição.</p>
+      </div>
+
+      <div class="course-overview">
+        <div class="course-overview-card">
+          <strong>Cursos disponíveis</strong>
+          <span>Inscrições abertas ou atendimento para mais informações.</span>
         </div>
-
-        <div class="courses-grid">
-          <article class="course-card" data-status="available">
-            <img
-              class="course-thumb"
-              src="imagem/Banner de Equidade.png"
-              alt="Curso Equidade em Saúde"
-            />
-            <h4 class="course-title">Equidade em Saúde</h4>
-            <p class="course-desc">
-              Formação para compreensão e implementação de políticas públicas de
-              equidade em saúde, visando redução de desigualdades na saúde pública.
-            </p>
-            <div class="course-footer">
-              <span class="course-duration">60h</span>
-              <a href="https://wa.me/5586988888888?text=Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20de%20Equidade%20em%20Sa%C3%BAde" class="btn" target="_blank">Saiba mais</a>
-            </div>
-          </article>
-
-          <article class="course-card" data-status="available">
-            <img
-              class="course-thumb"
-              src="imagem/banner01.png"
-              alt="Curso Vigilância Epidemiológica"
-            />
-            <h4 class="course-title">Vigilância Epidemiológica</h4>
-            <p class="course-desc">
-              Capacitação prática em sistemas de vigilância em saúde para identificação
-              e controle de doenças transmissíveis e não transmissíveis.
-            </p>
-            <div class="course-footer">
-              <span class="course-duration">40h</span>
-              <a href="https://wa.me/5586988888888?text=Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20de%20Vigil%C3%A2ncia%20Epidemiol%C3%B3gica" class="btn" target="_blank">Saiba mais</a>
-            </div>
-          </article>
-
-          <article class="course-card" data-status="available">
-            <img
-              class="course-thumb"
-              src="imagem/banner02.jpg"
-              alt="Curso Gestão em Saúde"
-            />
-            <h4 class="course-title">Gestão em Saúde</h4>
-            <p class="course-desc">
-              Ferramentas e estratégias modernas de gestão para profissionais que
-              coordenam equipes e serviços de saúde.
-            </p>
-            <div class="course-footer">
-              <span class="course-duration">50h</span>
-              <a href="https://wa.me/5586988888888?text=Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20de%20Gest%C3%A3o%20em%20Sa%C3%BAde" class="btn" target="_blank">Saiba mais</a>
-            </div>
-          </article>
-
-          <article class="course-card" data-status="unavailable">
-            <img
-              class="course-thumb"
-              src="imagem/indisponivel.png"
-              alt="Curso Saúde Pública - Em breve"
-            />
-            <h4 class="course-title">Saúde Pública Avançado</h4>
-            <p class="course-desc">
-              Curso avançado sobre políticas públicas de saúde, planejamento estratégico
-              e gestão de sistemas de saúde de alcance regional.
-            </p>
-            <div class="course-footer">
-              <span class="course-duration">80h</span>
-              <button class="btn" disabled>Em breve</button>
-            </div>
-          </article>
+        <div class="course-overview-card">
+          <strong>Em preparação</strong>
+          <span>Formações que entrarão em oferta em novas turmas.</span>
         </div>
-      </section>
-    </main>
+        <div class="course-overview-card">
+          <strong>Atendimento rápido</strong>
+          <span>Contato direto via WhatsApp para dúvidas e interesse.</span>
+        </div>
+      </div>
 
-    <!-- Seção Contato -->
-    <section class="contact-section" id="contact">
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Fale Conosco</h3>
-          <div class="contact-success" id="contactSuccess">
-            Mensagem enviada com sucesso. Entraremos em contato em breve.
+      <div class="courses-filter">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="available">Disponíveis</button>
+        <button class="filter-btn" data-filter="unavailable">Em breve</button>
+      </div>
+
+      <div class="courses-grid courses-grid-expanded">
+        <article class="course-card" data-status="available">
+          <img class="course-thumb" src="imagem/Banner de Equidade.png" alt="Curso Equidade em Saúde" />
+          <span class="course-pill">Inscrições abertas</span>
+          <h4 class="course-title">Equidade em Saúde</h4>
+          <p class="course-desc">Formação para compreensão e implementação de políticas públicas de equidade em saúde, com foco na redução das desigualdades.</p>
+          <div class="course-footer">
+            <span class="course-duration">60h</span>
+            <a href="https://wa.me/5586988888888?text=Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20de%20Equidade%20em%20Sa%C3%BAde" class="btn" target="_blank">Saiba mais</a>
           </div>
-          <form id="contactForm" class="contact-form" action="https://formspree.io/f/xzdalwjb" method="POST" novalidate>
-            <label for="email">
-              Seu email:
-              <input
-                id="email"
-                type="email"
-                name="email"
-                required
-                placeholder="exemplo@email.com"
-              />
-            </label>
-            <label for="message">
-              Sua mensagem:
-              <textarea
-                id="message"
-                name="message"
-                required
-                placeholder="Como podemos ajudar?"
-                minlength="10"
-              ></textarea>
-            </label>
-            <button type="submit" class="btn">Enviar</button>
-          </form>
-        </div>
-
-        <aside class="contact-info">
-          <h3>Informações</h3>
-          <p>
-            <strong>Email:</strong>
-            <a href="mailto:contato@escolasaude.pi.gov.br">contato@escolasaude.pi.gov.br</a>
-          </p>
-          <p>
-            <strong>Telefone:</strong>
-            <a href="tel:+558632215000">(86) 3221-5000</a>
-          </p>
-          <p><strong>Endereço:</strong> Teresina, Piauí - Brasil</p>
-          <p><strong>Horário:</strong> Seg-Sex: 8h às 17h</p>
-        </aside>
+        </article>
+        <article class="course-card" data-status="available">
+          <img class="course-thumb" src="imagem/banner01.png" alt="Curso Vigilância Epidemiológica" />
+          <span class="course-pill">Inscrições abertas</span>
+          <h4 class="course-title">Vigilância Epidemiológica</h4>
+          <p class="course-desc">Capacitação prática em sistemas de vigilância em saúde para identificação e controle de doenças transmissíveis e não transmissíveis.</p>
+          <div class="course-footer">
+            <span class="course-duration">40h</span>
+            <a href="https://wa.me/5586988888888?text=Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20de%20Vigil%C3%A2ncia%20Epidemiol%C3%B3gica" class="btn" target="_blank">Saiba mais</a>
+          </div>
+        </article>
+        <article class="course-card" data-status="available">
+          <img class="course-thumb" src="imagem/banner02.jpg" alt="Curso Gestão em Saúde" />
+          <span class="course-pill">Turma ativa</span>
+          <h4 class="course-title">Gestão em Saúde</h4>
+          <p class="course-desc">Ferramentas e estratégias modernas de gestão para profissionais que coordenam equipes e serviços de saúde.</p>
+          <div class="course-footer">
+            <span class="course-duration">50h</span>
+            <a href="https://wa.me/5586988888888?text=Gostaria%20de%20saber%20mais%20sobre%20o%20curso%20de%20Gest%C3%A3o%20em%20Sa%C3%BAde" class="btn" target="_blank">Saiba mais</a>
+          </div>
+        </article>
+        <article class="course-card" data-status="unavailable">
+          <img class="course-thumb" src="imagem/indisponivel.png" alt="Curso Saúde Pública Avançado" />
+          <span class="course-pill course-pill-soon">Em breve</span>
+          <h4 class="course-title">Saúde Pública Avançado</h4>
+          <p class="course-desc">Curso avançado sobre políticas públicas de saúde, planejamento estratégico e gestão de sistemas de saúde de alcance regional.</p>
+          <div class="course-footer">
+            <span class="course-duration">80h</span>
+            <button class="btn" type="button" disabled>Em breve</button>
+          </div>
+        </article>
       </div>
     </section>
+  </main>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Sobre a Escola</h3>
-          <p>
-            A Escola de Saúde Pública do Piauí é uma instituição dedicada à
-            formação de profissionais qualificados na área de saúde pública, com
-            excelencia, inovação e compromisso social.
-          </p>
-          <div class="social-links">
-            <a href="#" title="Facebook">f</a>
-            <a href="#" title="Instagram">📷</a>
-            <a href="#" title="LinkedIn">in</a>
-          </div>
-        </div>
-
-        <div class="footer-section">
-          <h3>Links Rápidos</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="index.html#about">Sobre Nós</a></li>
-            <li><a href="#courses">Cursos</a></li>
-            <li><a href="index.html#services">Serviços</a></li>
-            <li><a href="index.html#contact">Contato</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Cursos Disponíveis</h3>
-          <ul>
-            <li><a href="#courses">Equidade em Saúde</a></li>
-            <li><a href="#courses">Vigilância Epidemiológica</a></li>
-            <li><a href="#courses">Gestão em Saúde</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Contato</h3>
-          <ul>
-            <li>
-              <strong>Email:</strong>
-              <a href="mailto:contato@escolasaude.pi.gov.br"
-                >contato@escolasaude.pi.gov.br</a
-              >
-            </li>
-            <li>
-              <strong>Telefone:</strong>
-              <a href="tel:+558632215000">(86) 3221-5000</a>
-            </li>
-            <li><strong>Endereço:</strong> Teresina, Piauí - Brasil</li>
-            <li><strong>Horário:</strong> Seg-Sex: 8h às 17h</li>
-          </ul>
-        </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Sobre a Escola</h3>
+        <p>A Escola de Saúde Pública do Piauí é dedicada à formação de profissionais qualificados na área de saúde pública.</p>
       </div>
-
-      <div class="footer-divider"></div>
-
-      <div class="footer-bottom">
-        <p>
-          &copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos
-          reservados.
-        </p>
-        <p>
-          Desenvolvido com dedicação por David Perfeito Leôncio para a Escola de Saúde Pública
-          do Piauí
-        </p>
+      <div class="footer-section">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+        </ul>
       </div>
-    </footer>
+      <div class="footer-section">
+        <h3>Contato</h3>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:contato@escolasaude.pi.gov.br">contato@escolasaude.pi.gov.br</a></li>
+          <li><strong>Telefone:</strong> <a href="tel:+558632215000">(86) 3221-5000</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos reservados.</p>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
-  </body>
+  <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="modal-content modal-content-login">
+      <div class="modal-header">
+        <h3 id="loginModalTitle">Login do Usuário</h3>
+        <button aria-label="Fechar" type="button" onclick="closeLoginModal()">×</button>
+      </div>
+      <p class="login-intro">Acesse sua área para acompanhar cursos, novidades e comunicações da escola.</p>
+      <form id="loginForm" class="login-form">
+        <label for="loginName">Nome</label>
+        <input id="loginName" name="loginName" type="text" placeholder="Seu nome completo" required />
+        <label for="loginEmail">Email</label>
+        <input id="loginEmail" name="loginEmail" type="email" placeholder="usuario@exemplo.com" required />
+        <label for="loginPassword">Senha</label>
+        <input id="loginPassword" name="loginPassword" type="password" placeholder="Digite sua senha" minlength="6" required />
+        <button class="btn" type="submit">Entrar</button>
+        <p class="login-feedback" id="loginFeedback" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
