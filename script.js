@@ -183,6 +183,40 @@ function closeLoginModal() {
   document.body.classList.remove('modal-open');
 }
 
+function openImageModal(src, caption) {
+  const modal = document.getElementById('imageModal');
+  const image = document.getElementById('imageModalImg');
+  const captionEl = document.getElementById('imageModalCaption');
+
+  if (!modal || !image || !captionEl) {
+    return;
+  }
+
+  image.src = src;
+  image.alt = caption;
+  captionEl.textContent = caption;
+  modal.classList.add('active');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+}
+
+function closeImageModal() {
+  const modal = document.getElementById('imageModal');
+  const image = document.getElementById('imageModalImg');
+  const captionEl = document.getElementById('imageModalCaption');
+
+  if (!modal || !image || !captionEl) {
+    return;
+  }
+
+  modal.classList.remove('active');
+  modal.setAttribute('aria-hidden', 'true');
+  image.src = '';
+  image.alt = '';
+  captionEl.textContent = '';
+  document.body.classList.remove('modal-open');
+}
+
 function updateUserInterface() {
   const savedUser = localStorage.getItem(userStorageKey);
   const loginButtons = document.querySelectorAll('.btn-login');
@@ -279,6 +313,15 @@ if (loginModal) {
   });
 }
 
+const imageModal = document.getElementById('imageModal');
+if (imageModal) {
+  imageModal.addEventListener('click', (event) => {
+    if (event.target === imageModal) {
+      closeImageModal();
+    }
+  });
+}
+
 document.querySelectorAll('.team-photo').forEach((img) => {
   const initials = img.parentElement.querySelector('.team-initials');
   img.addEventListener('load', () => {
@@ -368,6 +411,7 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     closeTeamModal();
     closeLoginModal();
+    closeImageModal();
     closeMenu();
   }
 });

@@ -1,161 +1,234 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="David Perfeito Leôncio" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <title>Galeria de Fotos</title>
-  </head>
-  <body>
-    <header>
-      <div class="header-content">
-        <div class="logo">
-          <img src="imagem/logo.svg" alt="Logo Escola de Saúde" />
-          <span>Escola de Saúde Pública do Piauí</span>
-        </div>
-        <button class="hamburger" type="button" aria-label="Abrir menu principal" aria-controls="menu"
-          aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <nav>
-          <ul id="menu">
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="index.html#about">Sobre</a></li>
-            <li><a href="noticias.html">Notícias</a></li>
-            <li><a href="galeria.html">Galeria</a></li>
-            <li><a href="index.html#equipe">Equipe</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
-            <li><a href="index.html#contact">Contato</a></li>
-          </ul>
-        </nav>
-        <div class="menu-backdrop" hidden></div>
-        <div class="header-actions">
-          <button class="btn-login" type="button" onclick="openLoginModal()">Entrar</button>
-          <div class="user-status" id="userStatus" hidden>
-            <span id="userGreeting">Olá</span>
-            <button class="btn-logout" type="button" onclick="logoutUser()">Sair</button>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="David Perfeito Leôncio" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <title>Galeria - ESPPI</title>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="imagem/logo.svg" alt="Logo Escola de Saúde" />
+        <span>Escola de Saúde Pública do Piauí</span>
+      </div>
+      <button class="hamburger" type="button" aria-label="Abrir menu principal" aria-controls="menu"
+        aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul id="menu">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">Sobre</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="index.html#equipe">Equipe</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="menu-backdrop" hidden></div>
+      <div class="header-actions">
+        <button class="btn-login" type="button" onclick="openLoginModal()">Entrar</button>
+        <div class="user-status" id="userStatus" hidden>
+          <span id="userGreeting">Olá</span>
+          <button class="btn-logout" type="button" onclick="logoutUser()">Sair</button>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    <main class="main-content">
-      <!-- Seção Galeria de Eventos -->
-      <section class="galeria-section" id="galeria" aria-labelledby="galeria-title">
-        <div class="galeria-container">
-          <header class="galeria-header">
-            <h2 id="galeria-title">Galeria de Eventos</h2>
-            <p class="galeria-descricao">
-              Acompanhe os momentos marcantes da Escola de Saúde Pública do Piauí
-            </p>
-          </header>
+  <main class="main-content">
+    <section class="galeria-section" id="galeria" aria-labelledby="galeria-title">
+      <div class="galeria-container">
+        <div class="section-heading">
+          <span class="section-kicker">Registros</span>
+          <h2 id="galeria-title">Galeria de Eventos</h2>
+          <p>Momentos que retratam encontros, oficinas, formações e ações da Escola de Saúde Pública do Piauí.</p>
+        </div>
 
-          <div class="gallery-grid" role="region" aria-label="Grade de fotos de eventos">
-            <article class="gallery-item" role="img" aria-label="Aniversário do Welliton - Momento 1">
-              <img
-                class="gallery-thumb"
+        <div class="gallery-grid" role="region" aria-label="Grade de fotos de eventos">
+          <article class="gallery-item">
+            <button class="gallery-trigger" type="button"
+              onclick="openImageModal('imagem/evento/06032026/Aniversario Welliton WhatsApp 2026-03-06 at 11.15.43.jpeg', 'Aniversário do Welliton - momento 1')">
+              <img class="gallery-thumb"
                 src="imagem/evento/06032026/Aniversario Welliton WhatsApp 2026-03-06 at 11.15.43.jpeg"
-                alt="Foto do aniversário do Welliton - Momento 1"
-                onclick="openImageModal('imagem/evento/06032026/Aniversario Welliton WhatsApp 2026-03-06 at 11.15.43.jpeg', 'Aniversário do Welliton - Momento 1')"
-              />
-              <div class="gallery-body">
-                <div class="gallery-meta">Publicado em 06 mar 2026</div>
-                <h3 class="gallery-title">Aniversário do Welliton</h3>
-              </div>
-            </article>
+                alt="Aniversário do Welliton - momento 1" />
+            </button>
+            <div class="gallery-body">
+              <span class="gallery-meta">06 Mar 2026 • Integração</span>
+              <h3 class="gallery-title">Aniversário do Welliton</h3>
+            </div>
+          </article>
 
-            <article class="gallery-item" role="img" aria-label="Aniversário do Welliton - Momento 2">
-              <img
-                class="gallery-thumb"
-                src="imagem/evento/06032026/Welliton01.jpeg"
-                alt="Foto do aniversário do Welliton - Momento 2"
-                onclick="openImageModal('imagem/evento/06032026/Welliton01.jpeg', 'Aniversário do Welliton - Momento 2')"
-              />
-              <div class="gallery-body">
-                <div class="gallery-meta">Publicado em 06 mar 2026</div>
-                <h3 class="gallery-title">Aniversário do Welliton</h3>
-              </div>
-            </article>
+          <article class="gallery-item">
+            <button class="gallery-trigger" type="button"
+              onclick="openImageModal('imagem/evento/06032026/Welliton01.jpeg', 'Aniversário do Welliton - momento 2')">
+              <img class="gallery-thumb" src="imagem/evento/06032026/Welliton01.jpeg"
+                alt="Aniversário do Welliton - momento 2" />
+            </button>
+            <div class="gallery-body">
+              <span class="gallery-meta">06 Mar 2026 • Integração</span>
+              <h3 class="gallery-title">Celebração da equipe</h3>
+            </div>
+          </article>
 
-            <!-- Add more gallery items similarly... -->
-          </div>
+          <article class="gallery-item">
+            <button class="gallery-trigger" type="button"
+              onclick="openImageModal('imagem/evento/06032026/Welliton02.jpeg', 'Aniversário do Welliton - momento 3')">
+              <img class="gallery-thumb" src="imagem/evento/06032026/Welliton02.jpeg"
+                alt="Aniversário do Welliton - momento 3" />
+            </button>
+            <div class="gallery-body">
+              <span class="gallery-meta">06 Mar 2026 • Integração</span>
+              <h3 class="gallery-title">Confraternização institucional</h3>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <button class="gallery-trigger" type="button"
+              onclick="openImageModal('imagem/Encontros09032026.png', 'Encontro educacional e práticas pedagógicas')">
+              <img class="gallery-thumb" src="imagem/Encontros09032026.png"
+                alt="Encontro educacional e práticas pedagógicas" />
+            </button>
+            <div class="gallery-body">
+              <span class="gallery-meta">09 Mar 2026 • Formação</span>
+              <h3 class="gallery-title">Encontros educativos no SUS</h3>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <button class="gallery-trigger" type="button"
+              onclick="openImageModal('imagem/wohshooE.jpeg', 'Workshop de vigilância entomológica do Piauí')">
+              <img class="gallery-thumb" src="imagem/wohshooE.jpeg"
+                alt="Workshop de vigilância entomológica do Piauí" />
+            </button>
+            <div class="gallery-body">
+              <span class="gallery-meta">10 Mar 2026 • Evento</span>
+              <h3 class="gallery-title">Workshop de Vigilância Entomológica</h3>
+            </div>
+          </article>
+
+          <article class="gallery-item">
+            <button class="gallery-trigger" type="button"
+              onclick="openImageModal('imagem/CursoEgepi.png', 'Curso de escrita institucional e comunicação oficial inteligente')">
+              <img class="gallery-thumb" src="imagem/CursoEgepi.png"
+                alt="Curso de escrita institucional e comunicação oficial inteligente" />
+            </button>
+            <div class="gallery-body">
+              <span class="gallery-meta">10 Mar 2026 • Capacitação</span>
+              <h3 class="gallery-title">Escrita institucional e comunicação oficial</h3>
+            </div>
+          </article>
         </div>
-      </section>
-    </main>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h3>Fale Conosco</h3>
-          <div class="contact-success" id="contactSuccess" role="status" aria-live="polite" hidden></div>
-          <form id="contactForm" class="contact-form" action="https://formspree.io/f/mbdzjgky" method="POST">
-            <label for="name">Nome</label>
-            <input type="text" id="name" name="name" required />
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-            <label for="message">Mensagem</label>
-            <textarea id="message" name="message" required></textarea>
-            <button class="btn-small" type="submit">Enviar</button>
-          </form>
-        </div>
-
-        <aside class="contact-info">
-          <h3>Informações</h3>
-          <p><strong>Email:</strong> <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a></p>
-          <p><strong>Telefone:</strong> <a href="tel:+558632215000">(86) 3221-5000</a></p>
-          <p><strong>Endereço:</strong> Teresina, Piauí - Brasil</p>
-          <p><strong>Horário:</strong> Seg-Sex: 7h às 13h</p>
-        </aside>
       </div>
     </section>
+  </main>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Sobre a Escola</h3>
-          <p>A Escola de Saúde Pública do Piauí é uma instituição dedicada à formação de profissionais qualificados na área de saúde pública, com excelência e inovação.</p>
-          <div class="social-links">
-            <a href="https://www.instagram.com/escolasaudepi/" title="Instagram" aria-label="Instagram">📷</a>
-            <a href="https://www.youtube.com/@escoladesaudepublicadopiaui" title="YouTube" aria-label="YouTube">y</a>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h3>Links Rápidos</h3>
-          <ul>
-            <li><a href="index.html#home">Home</a></li>
-            <li><a href="index.html#about">Sobre Nós</a></li>
-            <li><a href="galeria.html">Galeria</a></li>
-            <li><a href="cursos.html">Cursos</a></li>
-            <li><a href="noticias.html">Notícias</a></li>
-            <li><a href="index.html#contact">Contato</a></li>
-          </ul>
-        </div>
-        <!-- other footer sections -->
+  <section class="contact-section" id="contact">
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Fale Conosco</h3>
+        <div class="contact-success" id="contactSuccess" role="status" aria-live="polite" hidden></div>
+        <form id="contactForm" class="contact-form" action="https://formspree.io/f/mbdzjgky" method="POST">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" required />
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+          <label for="message">Mensagem</label>
+          <textarea id="message" name="message" required minlength="10"></textarea>
+          <button class="btn" type="submit">Enviar</button>
+        </form>
       </div>
-      <div class="footer-divider"></div>
-      <p class="footer-bottom">&copy; 2026 Escola de Saúde Pública do Piauí. Desenvolvido por David Perfeito Leôncio.</p>
-    </footer>
 
-    <!-- Modals: teamModal, loginModal, imageModal (add full code from previous) -->
-    <div id="teamModal" class="modal"><!-- full team content fixed --></div>
-    <div id="loginModal" class="modal"><!-- full login --></div>
+      <aside class="contact-info">
+        <h3>Informações</h3>
+        <p><strong>Email:</strong> <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a></p>
+        <p><strong>Telefone:</strong> <a href="tel:+558632215000">(86) 3221-5000</a></p>
+        <p><strong>Endereço:</strong> Teresina, Piauí - Brasil</p>
+        <p><strong>Horário:</strong> Seg-Sex: 7h às 13h</p>
+      </aside>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
-    <script>
-      function openImageModal(src, alt) {
-        document.getElementById('imageModalImg').src = src;
-        document.getElementById('imageModalCaption').textContent = alt;
-        document.getElementById('imageModal').classList.add('active');
-        document.body.classList.add('modal-open');
-      }
-      function closeImageModal() {
-        document.getElementById('imageModal').classList.remove('active');
-        document.body.classList.remove('modal-open');
-      }
-    </script>
-  </body>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Sobre a Escola</h3>
+        <p>A Escola de Saúde Pública do Piauí é uma instituição dedicada à formação de profissionais qualificados na área de saúde pública, com excelência e inovação.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/escolasaudepi/" title="Instagram" aria-label="Instagram">IG</a>
+          <a href="https://www.youtube.com/@escoladesaudepublicadopiaui" title="YouTube" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">Sobre Nós</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Cursos</h3>
+        <ul>
+          <li><a href="cursos.html">Equidade em Saúde</a></li>
+          <li><a href="cursos.html">Vigilância Epidemiológica</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contato</h3>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a></li>
+          <li><strong>Telefone:</strong> <a href="tel:+558632215000">(86) 3221-5000</a></li>
+          <li><strong>Endereço:</strong> Teresina, Piauí - Brasil</li>
+          <li><strong>Horário:</strong> Seg-Sex: 7h às 13h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos reservados.</p>
+      <p>Desenvolvido por David Perfeito Leôncio para a Escola de Saúde Pública do Piauí.</p>
+    </div>
+  </footer>
+
+  <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="modal-content modal-content-login">
+      <div class="modal-header">
+        <h3 id="loginModalTitle">Login do Usuário</h3>
+        <button aria-label="Fechar" type="button" onclick="closeLoginModal()">×</button>
+      </div>
+      <p class="login-intro">Acesse sua área para acompanhar cursos, novidades e comunicações da escola.</p>
+      <form id="loginForm" class="login-form">
+        <label for="loginName">Nome</label>
+        <input id="loginName" name="loginName" type="text" placeholder="Seu nome completo" required />
+        <label for="loginEmail">Email</label>
+        <input id="loginEmail" name="loginEmail" type="email" placeholder="usuario@exemplo.com" required />
+        <label for="loginPassword">Senha</label>
+        <input id="loginPassword" name="loginPassword" type="password" placeholder="Digite sua senha" minlength="6" required />
+        <button class="btn" type="submit">Entrar</button>
+        <p class="login-feedback" id="loginFeedback" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <div id="imageModal" class="image-modal" aria-hidden="true">
+    <div class="image-modal-overlay" onclick="closeImageModal()"></div>
+    <div class="image-modal-container" role="dialog" aria-modal="true" aria-labelledby="imageModalCaption">
+      <button class="image-modal-close" type="button" aria-label="Fechar imagem" onclick="closeImageModal()">×</button>
+      <img id="imageModalImg" class="image-modal-img" src="" alt="" />
+      <p id="imageModalCaption" class="image-modal-caption"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
