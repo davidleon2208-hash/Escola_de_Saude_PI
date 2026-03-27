@@ -1,4 +1,4 @@
-let currentSlide = 0;
+﻿let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-item');
 const dots = document.querySelectorAll('.carousel-dot');
 const totalSlides = slides.length;
@@ -75,6 +75,7 @@ if (carouselEl && totalSlides) {
 function toggleMenu() {
   const menu = document.getElementById('menu');
   const hamburger = document.querySelector('.hamburger');
+  const backdrop = document.querySelector('.menu-backdrop');
 
   if (!menu || !hamburger) {
     return;
@@ -83,7 +84,13 @@ function toggleMenu() {
   const expanded = hamburger.getAttribute('aria-expanded') === 'true';
   menu.classList.toggle('active');
   hamburger.classList.toggle('active');
+  document.body.classList.toggle('menu-open', !expanded);
   hamburger.setAttribute('aria-expanded', String(!expanded));
+  hamburger.setAttribute('aria-label', expanded ? 'Abrir menu principal' : 'Fechar menu principal');
+  if (backdrop) {
+    backdrop.hidden = expanded;
+    backdrop.classList.toggle('active', !expanded);
+  }
 }
 
 function toggleSubmenu(event) {
@@ -97,6 +104,7 @@ function toggleSubmenu(event) {
 function closeMenu() {
   const menu = document.getElementById('menu');
   const hamburger = document.querySelector('.hamburger');
+  const backdrop = document.querySelector('.menu-backdrop');
 
   if (menu) {
     menu.classList.remove('active');
@@ -105,7 +113,15 @@ function closeMenu() {
   if (hamburger) {
     hamburger.classList.remove('active');
     hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.setAttribute('aria-label', 'Abrir menu principal');
   }
+
+  if (backdrop) {
+    backdrop.classList.remove('active');
+    backdrop.hidden = true;
+  }
+
+  document.body.classList.remove('menu-open');
 
   document.querySelectorAll('.submenu.open').forEach((submenu) => submenu.classList.remove('open'));
 }
@@ -183,7 +199,31 @@ function updateUserInterface() {
     return;
   }
 
-  const user = JSON.parse(savedUser);
+  let user;
+  try {
+    user = JSON.parse(savedUser);
+  } catch (error) {
+    localStorage.removeItem(userStorageKey);
+    loginButtons.forEach((button) => {
+      button.hidden = false;
+    });
+    if (userStatus) {
+      userStatus.hidden = true;
+    }
+    return;
+  }
+
+  if (!user || typeof user.name !== 'string' || !user.name.trim()) {
+    localStorage.removeItem(userStorageKey);
+    loginButtons.forEach((button) => {
+      button.hidden = false;
+    });
+    if (userStatus) {
+      userStatus.hidden = true;
+    }
+    return;
+  }
+
   loginButtons.forEach((button) => {
     button.hidden = true;
   });
@@ -191,7 +231,7 @@ function updateUserInterface() {
     userStatus.hidden = false;
   }
   if (greeting) {
-    greeting.textContent = `Olá, ${user.name.split(' ')[0]}`;
+    greeting.textContent = `Ol\u00E1, ${user.name.trim().split(/\s+/)[0]}`;
   }
 }
 
@@ -213,7 +253,7 @@ if (loginForm) {
 
     if (name.length < 3 || password.length < 6) {
       if (feedback) {
-        feedback.textContent = 'Preencha um nome válido e uma senha com pelo menos 6 caracteres.';
+        feedback.textContent = 'Preencha um nome v\u00E1lido e uma senha com pelo menos 6 caracteres.';
       }
       return;
     }
@@ -259,16 +299,51 @@ document.querySelectorAll('.team-photo').forEach((img) => {
 
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
-  contactForm.addEventListener('submit', () => {
-    setTimeout(() => {
-      const success = document.getElementById('contactSuccess');
-      if (success) {
-        success.style.display = 'block';
-        setTimeout(() => {
-          success.style.display = 'none';
-        }, 4000);
+  contactForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    if (!contactForm.reportValidity()) {
+      return;
+    }
+    const feedback = document.getElementById('contactSuccess');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const formData = new FormData(contactForm);
+    if (feedback) {
+      feedback.hidden = true;
+      feedback.classList.remove('is-error');
+      feedback.textContent = '';
+    }
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = 'Enviando...';
+    }
+    try {
+      const response = await fetch(contactForm.action, {
+        method: contactForm.method,
+        body: formData,
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
       }
-    }, 500);
+      contactForm.reset();
+      if (feedback) {
+        feedback.hidden = false;
+        feedback.textContent = 'Mensagem enviada com sucesso. Entraremos em contato em breve.';
+      }
+    } catch (error) {
+      if (feedback) {
+        feedback.hidden = false;
+        feedback.classList.add('is-error');
+        feedback.textContent = 'N\u00E3o foi poss\u00EDvel enviar a mensagem agora. Tente novamente em instantes.';
+      }
+    } finally {
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = 'Enviar';
+      }
+    }
   });
 }
 
@@ -293,17 +368,25 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     closeTeamModal();
     closeLoginModal();
+    closeMenu();
+  }
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 1170) {
+    closeMenu();
   }
 });
 
 const hamburgerEl = document.querySelector('.hamburger');
 if (hamburgerEl) {
-  hamburgerEl.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault();
-      toggleMenu();
-    }
-  });
+  hamburgerEl.addEventListener('click', toggleMenu);
+}
+
+const menuBackdropEl = document.querySelector('.menu-backdrop');
+if (menuBackdropEl) {
+  menuBackdropEl.addEventListener('click', closeMenu);
 }
 
 updateUserInterface();
+

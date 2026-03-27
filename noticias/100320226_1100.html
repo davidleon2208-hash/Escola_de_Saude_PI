@@ -1,69 +1,72 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="David Perfeito Leôncio" />
-  <link rel="stylesheet" href="../styles.css" />
-  <title>Escola de Saúde Pública do Piauí</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <title>noticia - ESPPI</title>
 </head>
 
 <body>
-  <header>
+      <header>
     <div class="header-content">
       <div class="logo">
         <img src="../imagem/logo.svg" alt="Logo Escola de Saúde" />
         <span>Escola de Saúde Pública do Piauí</span>
       </div>
-      <div class="hamburger" onclick="toggleMenu()" tabindex="0" role="button" aria-label="Abrir menu"
-        aria-controls="menu" aria-expanded="false">
+      <button class="hamburger" type="button" aria-label="Abrir menu principal" aria-controls="menu"
+        aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
       <nav>
         <ul id="menu">
           <li><a href="../index.html#home">Home</a></li>
           <li><a href="../index.html#about">Sobre</a></li>
-          <li><a href="../index.html#courses">Cursos</a></li>
-          <li class="has-submenu">
-            <a href="#services" class="submenu-toggle" data-submenu="true" onclick="toggleSubmenu(event)">Serviços ▾</a>
-            <ul class="submenu" aria-label="Submenu Serviços">
-              <li><a href="../noticias.html">Notícias</a></li>
-              <li><a href="../index.html#eventos">Eventos</a></li>
-              <li><a href="../galeria.html">Galeria</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contato</a></li>
+          <li><a href="../noticias.html">Notícias</a></li>
+          <li><a href="../galeria.html">Galeria</a></li>
+          <li><a href="../index.html#equipe">Equipe</a></li>
+          <li><a href="../cursos.html">Cursos</a></li>
+          <li><a href="../index.html#contact">Contato</a></li>
         </ul>
       </nav>
+      <div class="menu-backdrop" hidden></div>
+      <div class="header-actions">
+        <button class="btn-login" type="button" onclick="openLoginModal()">Entrar</button>
+        <div class="user-status" id="userStatus" hidden>
+          <span id="userGreeting">Olá</span>
+          <button class="btn-logout" type="button" onclick="logoutUser()">Sair</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="main-content">
-    <!-- Seção Notícias -->
+    <!-- Seção Noticias -->
     <section class="news-section" id="noticias">
-      <h2 class="news-title">Notícias</h2>
+      <h2 class="news-title">Notícias­cias</h2>
       <div class="publice">
-        Publicado em 10 mar 2026 • Notícias
+        Publicado em 10 mar 2026 â€¢ NotÃ­cias
       </div>
-      <h2>II Workshop de Vigilância Entomológica do Piauí</h2>
-      <img src="../imagem/wohshooE.jpeg" alt="II Workshop de Vigilância Entomológica do Piauí"
+      <h2>II Workshop de VigilÃ¢ncia EntomolÃ³gica do PiauÃ­</h2>
+      <img src="../imagem/wohshooE.jpeg" alt="II Workshop de VigilÃ¢ncia EntomolÃ³gica do PiauÃ­"
         class="news-image" />
       <article>
-        <P>Informações</P>
-      <p>O II Workshop de Vigilância Entomológica do Piauí é um evento técnico-científico que reúne estudantes, profissionais da saúde, pesquisadores e gestores para o fortalecimento das ações de vigilância entomológica no estado. O workshop tem como objetivo promover a atualização de conhecimentos, a troca de experiências e a discussão de estratégias inovadoras voltadas ao monitoramento, controle e prevenção de doenças transmitidas por vetores de patógenos.</p>
-      <p>O evento busca contribuir para a qualificação profissional, incentivar a integração entre ensino, pesquisa e serviços de saúde, e fortalecer as políticas públicas de vigilância e controle vetorial no Piauí, reafirmando o compromisso com a promoção da saúde e a prevenção de agravos à população.</p>
+        <P>InformaÃ§Ãµes</P>
+      <p>O II Workshop de VigilÃ¢ncia EntomolÃ³gica do PiauÃ­ Ã© um evento tÃ©cnico-cientÃ­fico que reÃºne estudantes, profissionais da saÃºde, pesquisadores e gestores para o fortalecimento das aÃ§Ãµes de vigilÃ¢ncia entomolÃ³gica no estado. O workshop tem como objetivo promover a atualizaÃ§Ã£o de conhecimentos, a troca de experiÃªncias e a discussÃ£o de estratÃ©gias inovadoras voltadas ao monitoramento, controle e prevenÃ§Ã£o de doenÃ§as transmitidas por vetores de patÃ³genos.</p>
+      <p>O evento busca contribuir para a qualificaÃ§Ã£o profissional, incentivar a integraÃ§Ã£o entre ensino, pesquisa e serviÃ§os de saÃºde, e fortalecer as polÃ­ticas pÃºblicas de vigilÃ¢ncia e controle vetorial no PiauÃ­, reafirmando o compromisso com a promoÃ§Ã£o da saÃºde e a prevenÃ§Ã£o de agravos Ã  populaÃ§Ã£o.</p>
         <p>
-          Periodo <strong>10 e 11 de março | 08h00 às 18h00</strong>.
+          Periodo <strong>10 e 11 de marÃ§o | 08h00 Ã s 18h00</strong>.
         </p>
         <p>
-          Local <strong>Tribunal de Contas do Estado do Piauí</strong>.
+          Local <strong>Tribunal de Contas do Estado do PiauÃ­</strong>.
         </p><br>
         <div>
           <p>
-            ⚠️ <strong>Inscrições:</strong><br>
+            âš ï¸ <strong>InscriÃ§Ãµes:</strong><br>
             <a href="http://doity.com.br/escrita-institucional-comunicacao-oficial-inteligente"
               target="_blank">clique Aqui</a>
           </p>
@@ -75,69 +78,49 @@
 
   </main>
 
-  <footer>
+      <footer>
     <div class="footer-content">
       <div class="footer-section">
         <h3>Sobre a Escola</h3>
-        <p>
-          A Escola de Saúde Pública do Piauí é uma instituição dedicada à
-          formação de profissionais qualificados na área de saúde pública, com
-          excelência e inovação.
-        </p>
+        <p>A Escola de Sa&uacute;de P&uacute;blica do Piau&iacute; &eacute; uma institui&ccedil;&atilde;o dedicada &agrave; forma&ccedil;&atilde;o de profissionais qualificados na
+          &aacute;rea de sa&uacute;de p&uacute;blica, com excel&ecirc;ncia e inova&ccedil;&atilde;o.</p>
         <div class="social-links">
-          <a href="#" title="Facebook" aria-label="Facebook">f</a>
-          <a href="#" title="Instagram" aria-label="Instagram">📷</a>
-          <a href="#" title="LinkedIn" aria-label="LinkedIn">in</a>
+          <a href="https://www.instagram.com/escolasaudepi/" title="Instagram" aria-label="Instagram">&#128247;</a>
+          <a href="https://www.youtube.com/@escoladesaudepublicadopiaui" title="YouTube" aria-label="YouTube">y</a>
         </div>
       </div>
-
       <div class="footer-section">
-        <h3>Links Rápidos</h3>
+        <h3>Links R&aacute;pidos</h3>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">Sobre Nós</a></li>
-          <li><a href="#courses">Cursos</a></li>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#contact">Contato</a></li>
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#about">Sobre N&oacute;s</a></li>
+          <li><a href="../galeria.html">Galeria</a></li>
+          <li><a href="../cursos.html">Cursos</a></li>
+          <li><a href="../noticias.html">Not&iacute;cias</a></li>
+          <li><a href="../index.html#contact">Contato</a></li>
         </ul>
       </div>
-
       <div class="footer-section">
         <h3>Cursos</h3>
         <ul>
-          <li><a href="#">Equidade</a></li>
-          <li><a href="#">.</a></li>
+          <li><a href="../cursos.html">Equidade em Sa&uacute;de</a></li>
+          <li><a href="../cursos.html">Vigil&acirc;ncia Epidemiol&oacute;gica</a></li>
         </ul>
       </div>
-
       <div class="footer-section">
         <h3>Contato</h3>
         <ul>
-          <li>
-            <strong>Email:</strong>
-            <a href="mailto:contato@escolasaude.pi.gov.br">contato@escolasaude.pi.gov.br</a>
-          </li>
-          <li>
-            <strong>Telefone:</strong>
-            <a href="tel:+558632215000">(86) 3221-5000</a>
-          </li>
-          <li><strong>Endereço:</strong> Teresina, Piauí - Brasil</li>
-          <li><strong>Horário:</strong> Seg-Sex: 8h às 17h</li>
+          <li><strong>Email:</strong> <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a></li>
+          <li><strong>Telefone:</strong> <a href="tel:+55863221XXXX">(86) 3221-XXXX</a></li>
+          <li><strong>Endere&ccedil;o:</strong> Teresina, Piau&iacute; - Brasil</li>
+          <li><strong>Hor&aacute;rio:</strong> Seg-Sex: 7h &agrave;s 13h</li>
         </ul>
       </div>
     </div>
-
     <div class="footer-divider"></div>
-
     <div class="footer-bottom">
-      <p>
-        &copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos
-        reservados.
-      </p>
-      <p>
-        Desenvolvido com David Perfeito Leôncio para a Escola de Saúde Pública
-        do Piauí
-      </p>
+      <p>&copy; 2026 Escola de Sa&uacute;de P&uacute;blica do Piau&iacute;. Todos os direitos reservados.</p>
+      <p>Desenvolvido por David Perfeito Le&ocirc;ncio para a Escola de Sa&uacute;de P&uacute;blica do Piau&iacute;.</p>
     </div>
   </footer>
 
@@ -145,3 +128,4 @@
 </body>
 
 </html>
+

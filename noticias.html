@@ -1,11 +1,11 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="David Perfeito Leôncio" />
-  <link rel="stylesheet" href="styles.css" />
-  <title>Notícias - Escola de Saúde Pública do Piauí</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <title>Notícias - ESPPI</title>
 </head>
 <body>
   <header>
@@ -14,21 +14,24 @@
         <img src="imagem/logo.svg" alt="Logo Escola de Saúde" />
         <span>Escola de Saúde Pública do Piauí</span>
       </div>
-      <div class="hamburger" onclick="toggleMenu()" tabindex="0" role="button" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false">
+      <button class="hamburger" type="button" aria-label="Abrir menu principal" aria-controls="menu"
+        aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
       <nav>
         <ul id="menu">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html#home">Home</a></li>
           <li><a href="index.html#about">Sobre</a></li>
-          <li><a href="index.html#courses">Cursos</a></li>
           <li><a href="noticias.html">Notícias</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
           <li><a href="index.html#equipe">Equipe</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
           <li><a href="index.html#contact">Contato</a></li>
         </ul>
       </nav>
+      <div class="menu-backdrop" hidden></div>
       <div class="header-actions">
         <button class="btn-login" type="button" onclick="openLoginModal()">Entrar</button>
         <div class="user-status" id="userStatus" hidden>
@@ -49,98 +52,123 @@
 
       <article class="news-featured">
         <div class="news-featured-media">
-          <img src="imagem/wohshooE.jpeg" alt="II Workshop de Vigilância Entomológica do Piauí" />
+          <img src="imagem/noticia/forum de Saúde Mental.png" alt="Fórum de Saúde Mental de Crianças e Adolescentes" />
         </div>
         <div class="news-featured-content">
           <span class="news-badge">Mais recente</span>
-          <div class="news-meta">10 Mar 2026 • Notícias</div>
-          <h3>II Workshop de Vigilância Entomológica do Piauí</h3>
-          <p>Evento voltado à atualização técnica de profissionais, ao fortalecimento das ações de campo e à troca de experiências entre equipes.</p>
-          <a class="btn" href="noticias/100320226_1100.html" target="_blank">Abrir publicação</a>
+          <div class="news-meta">26 Mar 2026 • Notícias</div>
+          <h3>Fórum de Saúde Mental de Crianças e Adolescentes</h3>
+          <p>Evento voltado à saúde mental na construção política Nacional de Saúde Mental</p>
+          <a class="btn" href="noticias/260320226_1100.html">Abrir publicação</a>
         </div>
       </article>
 
       <div class="news-grid news-grid-expanded">
         <article class="news-item">
-          <a href="noticias/100320226_1100.html" target="_blank" class="news-link"><img class="news-thumb" src="imagem/wohshooE.jpeg" alt="Workshop de vigilância" /></a>
+          <a href="noticias/260320226_1100.html" class="news-link"><img class="news-thumb" src="imagem/noticia/forum de Saúde Mental.png" alt="Fórum de Saúde Mental de Crianças e Adolescentes" /></a>
           <div class="news-body">
-            <div class="news-meta">10 Mar 2026 • Notícias</div>
-            <h4 class="news-title">II Workshop de Vigilância Entomológica do Piauí</h4>
-            <p class="news-excerpt">Atualização técnica, integração entre profissionais e fortalecimento da vigilância.</p>
+            <div class="news-meta">26 Mar 2026 • Notícias</div>
+            <h4 class="news-title">Fórum de Saúde Mental de Crianças e Adolescentes</h4>
+            <p class="news-excerpt">O protagonismo de crianças e adolescentes na construção política Nacional de Saúde Mental</p>
+          </div>
+        </article>        
+        <!-- Add other news items with fixed encoding... -->
+      </div>
+    </section>
+  </main>
+
+            <p class="news-excerpt">AtualizaÃ§Ã£o tÃ©cnica, integraÃ§Ã£o entre profissionais e fortalecimento da vigilÃ¢ncia.</p>
           </div>
         </article>
         <article class="news-item">
           <a href="noticias/100320226_1000.html" target="_blank" class="news-link"><img class="news-thumb" src="imagem/CursoEgepi.png" alt="Escrita institucional" /></a>
           <div class="news-body">
-            <div class="news-meta">10 Mar 2026 • Capacitação</div>
-            <h4 class="news-title">Curso Escrita Institucional e Comunicação Oficial Inteligente</h4>
-            <p class="news-excerpt">Clareza, padronização e eficiência para documentos e comunicação institucional.</p>
+            <div class="news-meta">10 Mar 2026 â€¢ CapacitaÃ§Ã£o</div>
+            <h4 class="news-title">Curso Escrita Institucional e ComunicaÃ§Ã£o Oficial Inteligente</h4>
+            <p class="news-excerpt">Clareza, padronizaÃ§Ã£o e eficiÃªncia para documentos e comunicaÃ§Ã£o institucional.</p>
           </div>
         </article>
         <article class="news-item">
-          <a href="noticias/080320226_1000.html" target="_blank" class="news-link"><img class="news-thumb" src="imagem/Encontros09032026.png" alt="Práticas pedagógicas" /></a>
+          <a href="noticias/080320226_1000.html" target="_blank" class="news-link"><img class="news-thumb" src="imagem/Encontros09032026.png" alt="PrÃ¡ticas pedagÃ³gicas" /></a>
           <div class="news-body">
-            <div class="news-meta">09 Mar 2026 • Encontro</div>
-            <h4 class="news-title">Encontro Educacional e Práticas Pedagógicas no Cotidiano do SUS</h4>
-            <p class="news-excerpt">Debate sobre formação, educação permanente e práticas pedagógicas para o SUS.</p>
+            <div class="news-meta">09 Mar 2026 â€¢ Encontro</div>
+            <h4 class="news-title">Encontro Educacional e PrÃ¡ticas PedagÃ³gicas no Cotidiano do SUS</h4>
+            <p class="news-excerpt">Debate sobre formaÃ§Ã£o, educaÃ§Ã£o permanente e prÃ¡ticas pedagÃ³gicas para o SUS.</p>
           </div>
         </article>
         <article class="news-item">
-          <a href="noticias/080320226_0900.html" target="_blank" class="news-link"><img class="news-thumb" src="imagem/conviteMulhuer.jpeg" alt="Convite para participação" /></a>
+          <a href="noticias/080320226_0900.html" target="_blank" class="news-link"><img class="news-thumb" src="imagem/conviteMulhuer.jpeg" alt="Convite para participaÃ§Ã£o" /></a>
           <div class="news-body">
-            <div class="news-meta">06 Mar 2026 • Convite</div>
-            <h4 class="news-title">Convite para Participação</h4>
-            <p class="news-excerpt">Chamada aos profissionais da saúde para participação nas próximas atividades educacionais.</p>
+            <div class="news-meta">06 Mar 2026 â€¢ Convite</div>
+            <h4 class="news-title">Convite para ParticipaÃ§Ã£o</h4>
+            <p class="news-excerpt">Chamada aos profissionais da saÃºde para participaÃ§Ã£o nas prÃ³ximas atividades educacionais.</p>
           </div>
         </article>
         <article class="news-item">
-          <a href="noticias/080320226_0800.html" target="_blank" class="news-link"><img class="news-thumb" src="imagem/webinario.jpeg" alt="Webinário" /></a>
+          <a href="noticias/080320226_0800.html" target="_blank" class="news-link"><img class="news-thumb" src="imagem/webinario.jpeg" alt="WebinÃ¡rio" /></a>
           <div class="news-body">
-            <div class="news-meta">04 Mar 2026 • Webinário</div>
-            <h4 class="news-title">Mulheres em Espaços de Gestão no SUS</h4>
-            <p class="news-excerpt">Reflexões sobre liderança, participação feminina e gestão no sistema público de saúde.</p>
+            <div class="news-meta">04 Mar 2026 â€¢ WebinÃ¡rio</div>
+            <h4 class="news-title">Mulheres em EspaÃ§os de GestÃ£o no SUS</h4>
+            <p class="news-excerpt">ReflexÃµes sobre lideranÃ§a, participaÃ§Ã£o feminina e gestÃ£o no sistema pÃºblico de saÃºde.</p>
           </div>
         </article>
       </div>
     </section>
   </main>
 
-  <footer>
+      <footer>
     <div class="footer-content">
       <div class="footer-section">
         <h3>Sobre a Escola</h3>
-        <p>Instituição dedicada à formação de profissionais qualificados na área de saúde pública.</p>
+        <p>A Escola de Sa&uacute;de P&uacute;blica do Piau&iacute; &eacute; uma institui&ccedil;&atilde;o dedicada &agrave; forma&ccedil;&atilde;o de profissionais qualificados na
+          &aacute;rea de sa&uacute;de p&uacute;blica, com excel&ecirc;ncia e inova&ccedil;&atilde;o.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/escolasaudepi/" title="Instagram" aria-label="Instagram">&#128247;</a>
+          <a href="https://www.youtube.com/@escoladesaudepublicadopiaui" title="YouTube" aria-label="YouTube">y</a>
+        </div>
       </div>
       <div class="footer-section">
-        <h3>Links Rápidos</h3>
+        <h3>Links R&aacute;pidos</h3>
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="index.html#courses">Cursos</a></li>
-          <li><a href="noticias.html">Notícias</a></li>
-          <li><a href="index.html#equipe">Equipe</a></li>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#about">Sobre N&oacute;s</a></li>
+          <li><a href="galeria.html">Galeria</a></li>
+          <li><a href="cursos.html">Cursos</a></li>
+          <li><a href="noticias.html">Not&iacute;cias</a></li>
+          <li><a href="index.html#contact">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Cursos</h3>
+        <ul>
+          <li><a href="cursos.html">Equidade em Sa&uacute;de</a></li>
+          <li><a href="cursos.html">Vigil&acirc;ncia Epidemiol&oacute;gica</a></li>
         </ul>
       </div>
       <div class="footer-section">
         <h3>Contato</h3>
         <ul>
-          <li><strong>Email:</strong> <a href="mailto:contato@escolasaude.pi.gov.br">contato@escolasaude.pi.gov.br</a></li>
-          <li><strong>Telefone:</strong> <a href="tel:+558632215000">(86) 3221-5000</a></li>
+<li><strong>Email:</strong> <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a></li>
+          <li><strong>Telefone:</strong> <a href="tel:+55863221XXXX">(86) 3221-XXXX</a></li>
+          <li><strong>Endere&ccedil;o:</strong> Teresina, Piau&iacute; - Brasil</li>
+          <li><strong>Hor&aacute;rio:</strong> Seg-Sex: 7h &agrave;s 13h</li>
         </ul>
       </div>
     </div>
     <div class="footer-divider"></div>
     <div class="footer-bottom">
-      <p>&copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos reservados.</p>
+      <p>&copy; 2026 Escola de Sa&uacute;de P&uacute;blica do Piau&iacute;. Todos os direitos reservados.</p>
+      <p>Desenvolvido por David Perfeito Le&ocirc;ncio para a Escola de Sa&uacute;de P&uacute;blica do Piau&iacute;.</p>
     </div>
   </footer>
 
   <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
     <div class="modal-content modal-content-login">
       <div class="modal-header">
-        <h3 id="loginModalTitle">Login do Usuário</h3>
-        <button aria-label="Fechar" type="button" onclick="closeLoginModal()">×</button>
+        <h3 id="loginModalTitle">Login do UsuÃ¡rio</h3>
+        <button aria-label="Fechar" type="button" onclick="closeLoginModal()">Ã—</button>
       </div>
-      <p class="login-intro">Acesse sua área para acompanhar cursos, novidades e comunicações da escola.</p>
+      <p class="login-intro">Acesse sua Ã¡rea para acompanhar cursos, novidades e comunicaÃ§Ãµes da escola.</p>
       <form id="loginForm" class="login-form">
         <label for="loginName">Nome</label>
         <input id="loginName" name="loginName" type="text" placeholder="Seu nome completo" required />
@@ -157,3 +185,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+

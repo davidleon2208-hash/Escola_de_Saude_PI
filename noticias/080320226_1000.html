@@ -1,117 +1,120 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="David Perfeito Leôncio" />
-  <link rel="stylesheet" href="../styles.css" />
-  <title>Escola de Saúde Pública do Piauí</title>
+  <meta name="author" content="David Perfeito LeÃ´ncio" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <title>Escola de SaÃºde PÃºblica do PiauÃ­</title>
 </head>
 
 <body>
-  <header>
+      <header>
     <div class="header-content">
       <div class="logo">
-        <img src="../imagem/logo.svg" alt="Logo Escola de Saúde" />
-        <span>Escola de Saúde Pública do Piauí</span>
+        <img src="../imagem/logo.svg" alt="Logo Escola de Sa&uacute;de" />
+        <span>Escola de Sa&uacute;de P&uacute;blica do Piau&iacute;</span>
       </div>
-      <div class="hamburger" onclick="toggleMenu()" tabindex="0" role="button" aria-label="Abrir menu"
-        aria-controls="menu" aria-expanded="false">
+      <button class="hamburger" type="button" aria-label="Abrir menu principal" aria-controls="menu"
+        aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
       <nav>
         <ul id="menu">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#courses">Cursos</a></li>
-          <li class="has-submenu">
-            <a href="#services" class="submenu-toggle" data-submenu="true" onclick="toggleSubmenu(event)">Serviços ▾</a>
-            <ul class="submenu" aria-label="Submenu Serviços">
-              <li><a href="#noticias">Notícias</a></li>
-              <li><a href="#eventos">Eventos</a></li>
-              <li><a href="#galeria">Galeria</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contato</a></li>
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#about">Sobre</a></li>
+          <li><a href="../noticias.html">Not&iacute;cias</a></li>
+          <li><a href="../galeria.html">Galeria</a></li>
+          <li><a href="../index.html#equipe">Equipe</a></li>
+          <li><a href="../cursos.html">Cursos</a></li>
+          <li><a href="../index.html#contact">Contato</a></li>
         </ul>
       </nav>
+      <div class="menu-backdrop" hidden></div>
+      <div class="header-actions">
+        <button class="btn-login" type="button" onclick="openLoginModal()">Entrar</button>
+        <div class="user-status" id="userStatus" hidden>
+          <span id="userGreeting">Ol&aacute;</span>
+          <button class="btn-logout" type="button" onclick="logoutUser()">Sair</button>
+        </div>
+      </div>
     </div>
   </header>
 
   <main class="main-content">
-    <!-- Seção Notícias -->
+    <!-- SeÃ§Ã£o NotÃ­cias -->
     <section class="news-section" id="noticias">
-      <h2 class="news-title">Notícias</h2>
+      <h2 class="news-title">NotÃ­cias</h2>
       <div class="publice" style="
             font-size: 14px;
             color: #666;
             margin-bottom: 10px;
             text-align: right;
           ">
-        Publicado em 09 mar 2026 • Notícias
+        Publicado em 09 mar 2026 â€¢ NotÃ­cias
       </div>
       <img src="/imagem/Encontros09032026.png"
-        alt="Encontros Educativos e Práticas Pedagógicas no Cotidiano do SUS - 2026" class="news-image">
+        alt="Encontros Educativos e PrÃ¡ticas PedagÃ³gicas no Cotidiano do SUS - 2026" class="news-image">
       <article">
-        <h3>Encontros Educativos e Práticas Pedagógicas no Cotidiano do SUS - 2026</h3>
-        <p>🚨 Atenção, Chamada pública aberta!</p><br>
-        <p>Estão abertas, pela ENSP/Fiocruz, as inscrições para o <strong>curso</strong> da RedEscola e sua seleção de
-          discentes no aperfeiçoamento: <strong>"Encontros Educativos e Práticas Pedagógicas no Cotidiano do SUS –
+        <h3>Encontros Educativos e PrÃ¡ticas PedagÃ³gicas no Cotidiano do SUS - 2026</h3>
+        <p>ðŸš¨ AtenÃ§Ã£o, Chamada pÃºblica aberta!</p><br>
+        <p>EstÃ£o abertas, pela ENSP/Fiocruz, as inscriÃ§Ãµes para o <strong>curso</strong> da RedEscola e sua seleÃ§Ã£o de
+          discentes no aperfeiÃ§oamento: <strong>"Encontros Educativos e PrÃ¡ticas PedagÃ³gicas no Cotidiano do SUS â€“
             2026".</strong></p>
         <P>
-          foram <strong>PRORROGADAS até 06 de março</strong>.
+          foram <strong>PRORROGADAS atÃ© 06 de marÃ§o</strong>.
         </p><br>
         </article>
         <div>
           <article">
-            <p><strong>👥 Seleção de discentes</strong></p>
+            <p><strong>ðŸ‘¥ SeleÃ§Ã£o de discentes</strong></p>
             <ul>
-              <li>✔️ <strong>503 vagas</strong>, distribuídas nacionalmente</li>
-              <li>✔️ Destinadas a docentes das Escolas de Saúde Pública e trabalhadores do SUS que desenvolvem
-                atividades educativas em seus territórios.</li>
+              <li>âœ”ï¸ <strong>503 vagas</strong>, distribuÃ­das nacionalmente</li>
+              <li>âœ”ï¸ Destinadas a docentes das Escolas de SaÃºde PÃºblica e trabalhadores do SUS que desenvolvem
+                atividades educativas em seus territÃ³rios.</li>
             </ul>
-            <p>⚠️ <strong>Inscrições: 09/03 a 30/03/2026</strong></p>
+            <p>âš ï¸ <strong>InscriÃ§Ãµes: 09/03 a 30/03/2026</strong></p>
             </article>
         </div>
         <div>
           <article>
-            <p><strong>📚 Sobre o curso</strong></p>
-            <p>Curso de <strong>180 horas</strong>, com abrangência nacional, voltado a docentes das Escolas de Saúde
-              Pública e trabalhadores do SUS envolvidos em atividades educativas. A formação promove o intercâmbio de
-              experiências e o fortalecimento das práticas pedagógicas e dos processos educativos no Sistema Único de
-              Saúde.</p>
+            <p><strong>ðŸ“š Sobre o curso</strong></p>
+            <p>Curso de <strong>180 horas</strong>, com abrangÃªncia nacional, voltado a docentes das Escolas de SaÃºde
+              PÃºblica e trabalhadores do SUS envolvidos em atividades educativas. A formaÃ§Ã£o promove o intercÃ¢mbio de
+              experiÃªncias e o fortalecimento das prÃ¡ticas pedagÃ³gicas e dos processos educativos no Sistema Ãšnico de
+              SaÃºde.</p>
           </article>
-          <p style="text-align: justify;">💡 O curso integra o projeto “Fortalecimento da Rede Brasileira de Escolas de
-            Saúde Pública: Formação e Qualificação dos Trabalhadores do SUS”, desenvolvido no âmbito da cooperação entre
-            a Escola Nacional de Saúde Pública Sérgio Arouca (ENSP/Fiocruz) e a Secretaria de Gestão do Trabalho e da
-            Educação na Saúde do Ministério da Saúde (SGTES/MS).
-            A RedEscola está vinculada à Vice-Direção de Escola de Governo em Saúde (VDEGS/ENSP/Fiocruz), instância
-            responsável pela articulação de parcerias, cooperação técnica e ações formativas voltadas ao fortalecimento
-            institucional e à qualificação dos trabalhadores do Sistema Único de Saúde.</p>
+          <p style="text-align: justify;">ðŸ’¡ O curso integra o projeto â€œFortalecimento da Rede Brasileira de Escolas de
+            SaÃºde PÃºblica: FormaÃ§Ã£o e QualificaÃ§Ã£o dos Trabalhadores do SUSâ€, desenvolvido no Ã¢mbito da cooperaÃ§Ã£o entre
+            a Escola Nacional de SaÃºde PÃºblica SÃ©rgio Arouca (ENSP/Fiocruz) e a Secretaria de GestÃ£o do Trabalho e da
+            EducaÃ§Ã£o na SaÃºde do MinistÃ©rio da SaÃºde (SGTES/MS).
+            A RedEscola estÃ¡ vinculada Ã  Vice-DireÃ§Ã£o de Escola de Governo em SaÃºde (VDEGS/ENSP/Fiocruz), instÃ¢ncia
+            responsÃ¡vel pela articulaÃ§Ã£o de parcerias, cooperaÃ§Ã£o tÃ©cnica e aÃ§Ãµes formativas voltadas ao fortalecimento
+            institucional e Ã  qualificaÃ§Ã£o dos trabalhadores do Sistema Ãšnico de SaÃºde.</p>
         </div><br>
 
         <div class="links-section">
-          <p>🔎 <strong>Acesse o edital:</strong></p>
+          <p>ðŸ”Ž <strong>Acesse o edital:</strong></p>
           <p>Portal de Ensino da ENSP:<br>
             <a href="https://ensino.ensp.fiocruz.br/pt-br/cursos/qualificacao-profissional/aperfeicoamento/processos-seletivos/840"
               target="_blank">Clique aqui para visualizar o edital</a>
           </p>
 
-          <p>🖥️ <strong>Faça sua inscrição:</strong><br>
+          <p>ðŸ–¥ï¸ <strong>FaÃ§a sua inscriÃ§Ã£o:</strong><br>
           <p>Plataforma SIGALS:</p>
           <a href="https://www.sigals.fiocruz.br/inscricao/cadastro.do?acao=telaInicial&codCL=28543&codECL=27179&codI=471"
             target="_blank">Acessar sistema SIGALS</a>
           </p>
 
-          <p>📧 <strong>Dúvidas sobre a inscrição:</strong><br>
+          <p>ðŸ“§ <strong>DÃºvidas sobre a inscriÃ§Ã£o:</strong><br>
             <a href="mailto:pseletivo.ensp@fiocruz.br" target="_blank"></a>pseletivo.ensp@fiocruz.br</a>
           </p>
         </div>
         <br>
-        <p>💡 <em>de segunda a sexta-feira, das 8h30 às 16h30.</em>
+        <p>ðŸ’¡ <em>de segunda a sexta-feira, das 8h30 Ã s 16h30.</em>
         </p>
 
         </article>
@@ -120,73 +123,54 @@
 
   </main>
 
-  <footer>
+      <footer>
     <div class="footer-content">
       <div class="footer-section">
         <h3>Sobre a Escola</h3>
-        <p>
-          A Escola de Saúde Pública do Piauí é uma instituição dedicada à
-          formação de profissionais qualificados na área de saúde pública, com
-          excelência e inovação.
-        </p>
+        <p>A Escola de Sa&uacute;de P&uacute;blica do Piau&iacute; &eacute; uma institui&ccedil;&atilde;o dedicada &agrave; forma&ccedil;&atilde;o de profissionais qualificados na
+          &aacute;rea de sa&uacute;de p&uacute;blica, com excel&ecirc;ncia e inova&ccedil;&atilde;o.</p>
         <div class="social-links">
-          <a href="#" title="Facebook" aria-label="Facebook">f</a>
-          <a href="#" title="Instagram" aria-label="Instagram">📷</a>
-          <a href="#" title="LinkedIn" aria-label="LinkedIn">in</a>
+          <a href="https://www.instagram.com/escolasaudepi/" title="Instagram" aria-label="Instagram">&#128247;</a>
+          <a href="https://www.youtube.com/@escoladesaudepublicadopiaui" title="YouTube" aria-label="YouTube">y</a>
         </div>
       </div>
-
       <div class="footer-section">
-        <h3>Links Rápidos</h3>
+        <h3>Links R&aacute;pidos</h3>
         <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">Sobre Nós</a></li>
-          <li><a href="#courses">Cursos</a></li>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#contact">Contato</a></li>
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#about">Sobre N&oacute;s</a></li>
+          <li><a href="../galeria.html">Galeria</a></li>
+          <li><a href="../cursos.html">Cursos</a></li>
+          <li><a href="../noticias.html">Not&iacute;cias</a></li>
+          <li><a href="../index.html#contact">Contato</a></li>
         </ul>
       </div>
-
       <div class="footer-section">
         <h3>Cursos</h3>
         <ul>
-          <li><a href="#">Equidade</a></li>
-          <li><a href="#">.</a></li>
+          <li><a href="../cursos.html">Equidade em Sa&uacute;de</a></li>
+          <li><a href="../cursos.html">Vigil&acirc;ncia Epidemiol&oacute;gica</a></li>
         </ul>
       </div>
-
       <div class="footer-section">
         <h3>Contato</h3>
         <ul>
-          <li>
-            <strong>Email:</strong>
-            <a href="mailto:contato@escolasaude.pi.gov.br">contato@escolasaude.pi.gov.br</a>
-          </li>
-          <li>
-            <strong>Telefone:</strong>
-            <a href="tel:+558632215000">(86) 3221-5000</a>
-          </li>
-          <li><strong>Endereço:</strong> Teresina, Piauí - Brasil</li>
-          <li><strong>Horário:</strong> Seg-Sex: 8h às 17h</li>
+          <li><strong>Email:</strong> <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a></li>
+          <li><strong>Telefone:</strong> <a href="tel:+55863221XXXX">(86) 3221-XXXX</a></li>
+          <li><strong>Endere&ccedil;o:</strong> Teresina, Piau&iacute; - Brasil</li>
+          <li><strong>Hor&aacute;rio:</strong> Seg-Sex: 7h &agrave;s 13h</li>
         </ul>
       </div>
     </div>
-
     <div class="footer-divider"></div>
-
     <div class="footer-bottom">
-      <p>
-        &copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos
-        reservados.
-      </p>
-      <p>
-        Desenvolvido com David Perfeito Leôncio para a Escola de Saúde Pública
-        do Piauí
-      </p>
+      <p>&copy; 2026 Escola de Sa&uacute;de P&uacute;blica do Piau&iacute;. Todos os direitos reservados.</p>
+      <p>Desenvolvido por David Perfeito Le&ocirc;ncio para a Escola de Sa&uacute;de P&uacute;blica do Piau&iacute;.</p>
     </div>
   </footer>
 
-  <script src=""></script>
+  <script src="../script.js"></script>
 </body>
 
 </html>
+

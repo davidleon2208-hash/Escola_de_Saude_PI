@@ -1,89 +1,79 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="David Perfeito Leôncio" />
-    <link rel="stylesheet" href="../styles.css" />
-    <title>Escola de Saúde Pública do Piauí</title>
+    <meta name="author" content="David Perfeito LeÃ´ncio" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <title>Escola de SaÃºde PÃºblica do PiauÃ­</title>
   </head>
   <body>
-    <header>
-      <div class="header-content">
-        <div class="logo">
-          <img src="../imagem/logo.svg" alt="Logo Escola de Saúde" />
-          <span>Escola de Saúde Pública do Piauí</span>
-        </div>
-        <div
-          class="hamburger"
-          onclick="toggleMenu()"
-          tabindex="0"
-          role="button"
-          aria-label="Abrir menu"
-          aria-controls="menu"
-          aria-expanded="false"
-        >
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <nav>
-          <ul id="menu">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">Sobre</a></li>
-            <li><a href="#courses">Cursos</a></li>
-            <li class="has-submenu">
-              <a
-                href="#services"
-                class="submenu-toggle"
-                data-submenu="true"
-                onclick="toggleSubmenu(event)"
-                >Serviços ▾</a
-              >
-              <ul class="submenu" aria-label="Submenu Serviços">
-                <li><a href="#noticias">Notícias</a></li>
-                <li><a href="#eventos">Eventos</a></li>
-                <li><a href="#galeria">Galeria</a></li>
-              </ul>
-            </li>
-            <li><a href="#contact">Contato</a></li>
-          </ul>
-        </nav>
+        <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="../imagem/logo.svg" alt="Logo Escola de Sa&uacute;de" />
+        <span>Escola de Sa&uacute;de P&uacute;blica do Piau&iacute;</span>
       </div>
-    </header>
+      <button class="hamburger" type="button" aria-label="Abrir menu principal" aria-controls="menu"
+        aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul id="menu">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#about">Sobre</a></li>
+          <li><a href="../noticias.html">Not&iacute;cias</a></li>
+          <li><a href="../galeria.html">Galeria</a></li>
+          <li><a href="../index.html#equipe">Equipe</a></li>
+          <li><a href="../cursos.html">Cursos</a></li>
+          <li><a href="../index.html#contact">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="menu-backdrop" hidden></div>
+      <div class="header-actions">
+        <button class="btn-login" type="button" onclick="openLoginModal()">Entrar</button>
+        <div class="user-status" id="userStatus" hidden>
+          <span id="userGreeting">Ol&aacute;</span>
+          <button class="btn-logout" type="button" onclick="logoutUser()">Sair</button>
+        </div>
+      </div>
+    </div>
+  </header>
 
     <main class="main-content">
-      <!-- Seção Notícias -->
+      <!-- SeÃ§Ã£o NotÃ­cias -->
       <section class="news-section" id="noticias">
-        <h2 class="news-title">Notícias</h2>
+        <h2 class="news-title">NotÃ­cias</h2>
           <div class="publice" style="font-size: 14px; color: #666; margin-bottom: 10px; text-align: right;">
-             Publicado em 06 mar 2026 • Notícias
+             Publicado em 06 mar 2026 â€¢ NotÃ­cias
           </div>
         <article>
           <img
             src="../imagem/webinario.jpeg"
-            alt="Webinário"
+            alt="WebinÃ¡rio"
           class="news-image"
           />
           <h3 class="alert">
-            Webinário “Mulheres em Espaços de Gestão no SUS”
+            WebinÃ¡rio â€œMulheres em EspaÃ§os de GestÃ£o no SUSâ€
           </h3>
 
           <p>
-            O Departamento de Gestão Interfederativa e Participativa da
-            Secretaria-Executiva do Ministério da Saúde, por meio da
-            Coordenação-Geral de Articulação Interfederativa (CGAI/DGIP/SE/MS),
-            tem a honra de convidá-los para o Webinário “Mulheres em Espaços de
-            Gestão no SUS”, a ser realizado no dia 06 de março de 2026
-            (sexta-feira), das 14h às 17h (horário de Brasília). A iniciativa
-            busca proporcionar um espaço de diálogo, troca de experiências e
-            reflexão sobre os avanços, desafios e perspectivas para o
-            fortalecimento da presença das mulheres nos espaços estratégicos de
-            decisão do Sistema Único de Saúde.
+            O Departamento de GestÃ£o Interfederativa e Participativa da
+            Secretaria-Executiva do MinistÃ©rio da SaÃºde, por meio da
+            CoordenaÃ§Ã£o-Geral de ArticulaÃ§Ã£o Interfederativa (CGAI/DGIP/SE/MS),
+            tem a honra de convidÃ¡-los para o WebinÃ¡rio â€œMulheres em EspaÃ§os de
+            GestÃ£o no SUSâ€, a ser realizado no dia 06 de marÃ§o de 2026
+            (sexta-feira), das 14h Ã s 17h (horÃ¡rio de BrasÃ­lia). A iniciativa
+            busca proporcionar um espaÃ§o de diÃ¡logo, troca de experiÃªncias e
+            reflexÃ£o sobre os avanÃ§os, desafios e perspectivas para o
+            fortalecimento da presenÃ§a das mulheres nos espaÃ§os estratÃ©gicos de
+            decisÃ£o do Sistema Ãšnico de SaÃºde.
           </p>
 
           <p>
-            💡
+            ðŸ’¡
             <em
               >Link para o evento</em>
             : <a href="https://teams.microsoft.com/meet/27035547603178?p=KVENKf3n0a29nrYFoA" target="_blank">Clique aqui</a>
@@ -92,75 +82,54 @@
       </section>
     </main>
 
-    <footer>
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3>Sobre a Escola</h3>
-          <p>
-            A Escola de Saúde Pública do Piauí é uma instituição dedicada à
-            formação de profissionais qualificados na área de saúde pública, com
-            excelência e inovação.
-          </p>
-          <div class="social-links">
-            <a href="#" title="Facebook" aria-label="Facebook">f</a>
-            <a href="#" title="Instagram" aria-label="Instagram">📷</a>
-            <a href="#" title="LinkedIn" aria-label="LinkedIn">in</a>
-          </div>
-        </div>
-
-        <div class="footer-section">
-          <h3>Links Rápidos</h3>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">Sobre Nós</a></li>
-            <li><a href="#courses">Cursos</a></li>
-            <li><a href="#services">Serviços</a></li>
-            <li><a href="#contact">Contato</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Cursos</h3>
-          <ul>
-            <li><a href="#">Equidade</a></li>
-            <li><a href="#">.</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h3>Contato</h3>
-          <ul>
-            <li>
-              <strong>Email:</strong>
-              <a href="mailto:contato@escolasaude.pi.gov.br"
-                >contato@escolasaude.pi.gov.br</a
-              >
-            </li>
-            <li>
-              <strong>Telefone:</strong>
-              <a href="tel:+558632215000">(86) 3221-5000</a>
-            </li>
-            <li><strong>Endereço:</strong> Teresina, Piauí - Brasil</li>
-            <li><strong>Horário:</strong> Seg-Sex: 8h às 17h</li>
-          </ul>
+        <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Sobre a Escola</h3>
+        <p>A Escola de Sa&uacute;de P&uacute;blica do Piau&iacute; &eacute; uma institui&ccedil;&atilde;o dedicada &agrave; forma&ccedil;&atilde;o de profissionais qualificados na
+          &aacute;rea de sa&uacute;de p&uacute;blica, com excel&ecirc;ncia e inova&ccedil;&atilde;o.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/escolasaudepi/" title="Instagram" aria-label="Instagram">&#128247;</a>
+          <a href="https://www.youtube.com/@escoladesaudepublicadopiaui" title="YouTube" aria-label="YouTube">y</a>
         </div>
       </div>
-
-      <div class="footer-divider"></div>
-
-      <div class="footer-bottom">
-        <p>
-          &copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos
-          reservados.
-        </p>
-        <p>
-          Desenvolvido com David Perfeito Leôncio para a Escola de Saúde Pública
-          do Piauí
-        </p>
+      <div class="footer-section">
+        <h3>Links R&aacute;pidos</h3>
+        <ul>
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#about">Sobre N&oacute;s</a></li>
+          <li><a href="../galeria.html">Galeria</a></li>
+          <li><a href="../cursos.html">Cursos</a></li>
+          <li><a href="../noticias.html">Not&iacute;cias</a></li>
+          <li><a href="../index.html#contact">Contato</a></li>
+        </ul>
       </div>
-    </footer>
+      <div class="footer-section">
+        <h3>Cursos</h3>
+        <ul>
+          <li><a href="../cursos.html">Equidade em Sa&uacute;de</a></li>
+          <li><a href="../cursos.html">Vigil&acirc;ncia Epidemiol&oacute;gica</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contato</h3>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a></li>
+          <li><strong>Telefone:</strong> <a href="tel:+55863221XXXX">(86) 3221-XXXX</a></li>
+          <li><strong>Endere&ccedil;o:</strong> Teresina, Piau&iacute; - Brasil</li>
+          <li><strong>Hor&aacute;rio:</strong> Seg-Sex: 7h &agrave;s 13h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Escola de Sa&uacute;de P&uacute;blica do Piau&iacute;. Todos os direitos reservados.</p>
+      <p>Desenvolvido por David Perfeito Le&ocirc;ncio para a Escola de Sa&uacute;de P&uacute;blica do Piau&iacute;.</p>
+    </div>
+  </footer>
 
     <script src="../script.js"></script>
   </body>
 </html>
   
+
