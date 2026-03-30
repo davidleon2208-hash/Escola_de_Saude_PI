@@ -79,7 +79,7 @@ header {
 nav ul {
   display: flex;
   list-style: none;
-  gap: 30px;
+  gap: 25px;
   flex-wrap: wrap;
 }
 
@@ -1844,6 +1844,13 @@ nav {
 }
 
 #menu {
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+
+#menu li a {
+  white-space: nowrap;
+  flex: 1;
   min-width: 0;
 }
 
