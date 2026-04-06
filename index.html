@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="David Perfeito Leôncio" />
+  <meta name="description" content="Portal institucional da Escola de Saúde Pública do Piauí com notícias, cursos, equipe, galeria e canais de contato." />
   <link rel="stylesheet" href="css/styles.css" />
   <title>Escola de Saúde Pública do Piauí</title>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
   <header>
     <div class="header-content">
       <div class="logo">
@@ -42,7 +44,7 @@
     </div>
   </header>
 
-  <main class="main-content">
+  <main class="main-content" id="conteudo-principal">
     <div class="carousel-container">
       <div class="carousel" id="carousel">
         <div class="carousel-item active">
@@ -68,17 +70,70 @@
         onclick="nextSlide()">&#10095;</button>
 
       <div class="carousel-controls">
-        <button class="carousel-dot active" onclick="goToSlide(0)"></button>
-        <button class="carousel-dot" onclick="goToSlide(1)"></button>
-        <button class="carousel-dot" onclick="goToSlide(2)"></button>
-        <button class="carousel-dot" onclick="goToSlide(3)"></button>
-        <button class="carousel-dot" onclick="goToSlide(4)"></button>
+        <button class="carousel-dot active" type="button" aria-label="Ir para o slide 1" onclick="goToSlide(0)"></button>
+        <button class="carousel-dot" type="button" aria-label="Ir para o slide 2" onclick="goToSlide(1)"></button>
+        <button class="carousel-dot" type="button" aria-label="Ir para o slide 3" onclick="goToSlide(2)"></button>
+        <button class="carousel-dot" type="button" aria-label="Ir para o slide 4" onclick="goToSlide(3)"></button>
+        <button class="carousel-dot" type="button" aria-label="Ir para o slide 5" onclick="goToSlide(4)"></button>
       </div>
+      <p class="sr-only" id="carouselStatus" aria-live="polite">Slide 1 de 5</p>
     </div>
 
     <section class="ban" id="home">
-      <h1>Bem-vindo à Escola de Saúde Pública</h1>
-      <p>Formando profissionais de excelência na área da saúde pública.</p>
+      <div class="hero-copy">
+        <span class="hero-kicker">Formação, inovação e compromisso com o SUS</span>
+        <h1>Escola de Saúde Pública do Piauí</h1>
+        <p>Qualificação, apoio técnico e formação continuada para fortalecer trabalhadores, gestores e redes de cuidado em todo o território piauiense.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-light" href="#courses">Explorar cursos</a>
+        <a class="btn btn-ghost-light" href="#noticias">Ver notícias</a>
+      </div>
+      <div class="hero-metrics" aria-label="Indicadores institucionais em destaque">
+        <article class="hero-metric">
+          <strong>Ensino</strong>
+          <span>Trilhas formativas alinhadas às necessidades do SUS.</span>
+        </article>
+        <article class="hero-metric">
+          <strong>Pesquisa</strong>
+          <span>Produção de conhecimento voltada à realidade regional.</span>
+        </article>
+        <article class="hero-metric">
+          <strong>Território</strong>
+          <span>Ações conectadas à gestão pública e ao cuidado em saúde.</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="quick-links-section" aria-labelledby="quickLinksTitle">
+      <div class="section-heading section-heading-left quick-links-heading">
+        <span class="section-kicker">Acesso rápido</span>
+        <h2 id="quickLinksTitle">Principais portas de entrada</h2>
+        <p>Atalhos para as áreas mais procuradas por profissionais, gestores e parceiros institucionais.</p>
+      </div>
+
+      <div class="quick-links-grid">
+        <a class="quick-link-card" href="#courses">
+          <span class="quick-link-label">Cursos</span>
+          <strong>Conheça as formações ativas</strong>
+          <p>Veja cursos em destaque, carga horária e caminhos para inscrição.</p>
+        </a>
+        <a class="quick-link-card" href="#noticias">
+          <span class="quick-link-label">Notícias</span>
+          <strong>Acompanhe comunicados e eventos</strong>
+          <p>Publicações recentes, convites, oficinas e atividades institucionais.</p>
+        </a>
+        <a class="quick-link-card" href="#equipe">
+          <span class="quick-link-label">Equipe</span>
+          <strong>Conheça quem conduz a escola</strong>
+          <p>Gestão, ensino, pesquisa e apoio institucional em uma visão rápida.</p>
+        </a>
+        <a class="quick-link-card" href="#contact">
+          <span class="quick-link-label">Contato</span>
+          <strong>Fale com a ESPPI</strong>
+          <p>Entre em contato para dúvidas, apoio institucional e informações gerais.</p>
+        </a>
+      </div>
     </section>
 
     <section class="about-section" id="about">
@@ -112,6 +167,20 @@
             de projetos educacionais conectados às necessidades do território.</p>
           <p>Com foco em formação continuada, pesquisa e inovação, a instituição amplia o acesso a conhecimentos
             estratégicos para gestores, docentes e profissionais da rede pública.</p>
+          <div class="institutional-pillars" aria-label="Frentes institucionais">
+            <div class="institutional-pillar">
+              <strong>Formação continuada</strong>
+              <span>Experiências educacionais voltadas à prática e à gestão em saúde.</span>
+            </div>
+            <div class="institutional-pillar">
+              <strong>Apoio às redes</strong>
+              <span>Contribuição técnica para fortalecer políticas, fluxos e serviços públicos.</span>
+            </div>
+            <div class="institutional-pillar">
+              <strong>Inovação aplicada</strong>
+              <span>Soluções pedagógicas conectadas às transformações do cuidado no SUS.</span>
+            </div>
+          </div>
           <h3>Nossos Destaques</h3>
           <ul>
             <li>Corpo técnico com experiência em ensino, pesquisa e gestão pública.</li>
@@ -359,10 +428,14 @@
 
       <aside class="contact-info">
         <h3>Informações</h3>
-<p><strong>Email:</strong> <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a></p>
+        <p><strong>Email:</strong> <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a></p>
         <p><strong>Telefone:</strong> <a href="tel:+558632215000">(86) 3221-5000</a></p>
         <p><strong>Endereço:</strong> Teresina, Piauí - Brasil</p>
         <p><strong>Horário:</strong> Seg-Sex: 7h às 13h</p>
+        <div class="contact-channels">
+          <a class="contact-chip" href="mailto:esppi21@gmail.com">Enviar email</a>
+          <a class="contact-chip" href="https://www.instagram.com/escolasaudepi/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        </div>
       </aside>
     </div>
   </section>
@@ -415,7 +488,7 @@
     </div>
   </footer>
 
-  <div id="teamModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="teamModalTitle">
+  <div id="teamModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="teamModalTitle">
     <div class="modal-content">
       <div class="modal-header">
         <h3 id="teamModalTitle">Equipe Completa</h3>
@@ -455,7 +528,7 @@
     </div>
   </div>
 
-  <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+  <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="loginModalTitle">
     <div class="modal-content modal-content-login">
       <div class="modal-header">
         <h3 id="loginModalTitle">Login do Usuário</h3>

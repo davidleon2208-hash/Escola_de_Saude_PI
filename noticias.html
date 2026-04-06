@@ -4,18 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="David Perfeito Leôncio" />
+  <meta name="description" content="Notícias, eventos e comunicados da Escola de Saúde Pública do Piauí." />
   <link rel="stylesheet" href="css/styles.css" />
   <title>Notícias - ESPPI</title>
 </head>
 <body>
+  <a class="skip-link" href="#conteudo-principal">Pular para o conteúdo principal</a>
   <header>
     <div class="header-content">
       <div class="logo">
-        <img src="imagem/logo.svg" alt="Logo Escola de Saúde" />
+        <a href="./index.html" aria-label="Página inicial - Escola de Saúde Pública do Piauí"><img src="imagem/logo.svg" alt="Logo Escola de Saúde" /></a>
         <span>Escola de Saúde Pública do Piauí</span>
       </div>
-      <button class="hamburger" type="button" aria-label="Abrir menu principal" aria-controls="menu"
-        aria-expanded="false">
+      <button class="hamburger" type="button" aria-label="Abrir menu principal" aria-controls="menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
@@ -42,7 +43,7 @@
     </div>
   </header>
 
-  <main class="main-content">
+  <main class="main-content" id="conteudo-principal">
     <section class="news-section page-news">
       <div class="section-heading">
         <span class="section-kicker">Central de notícias</span>
@@ -178,7 +179,7 @@
     </div>
   </footer>
 
-  <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+  <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="loginModalTitle">
     <div class="modal-content modal-content-login">
       <div class="modal-header">
         <h3 id="loginModalTitle">Login do Usuário</h3>

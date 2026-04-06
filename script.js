@@ -1,9 +1,18 @@
-﻿let currentSlide = 0;
+let currentSlide = 0;
 const slides = document.querySelectorAll('.carousel-item');
 const dots = document.querySelectorAll('.carousel-dot');
 const totalSlides = slides.length;
 let carouselInterval = null;
 const userStorageKey = 'esppi_user';
+const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+let lastFocusedElement = null;
+
+function updateCarouselStatus(index) {
+  const status = document.getElementById('carouselStatus');
+  if (status) {
+    status.textContent = `Slide ${index + 1} de ${totalSlides}`;
+  }
+}
 
 function showSlide(index) {
   if (!slides.length || !dots.length) {
@@ -11,10 +20,15 @@ function showSlide(index) {
   }
 
   slides.forEach((slide) => slide.classList.remove('active'));
-  dots.forEach((dot) => dot.classList.remove('active'));
+  dots.forEach((dot) => {
+    dot.classList.remove('active');
+    dot.removeAttribute('aria-current');
+  });
 
   slides[index].classList.add('active');
   dots[index].classList.add('active');
+  dots[index].setAttribute('aria-current', 'true');
+  updateCarouselStatus(index);
 }
 
 function nextSlide() {
@@ -55,10 +69,24 @@ function startCarousel() {
 
 const carouselEl = document.getElementById('carousel');
 if (carouselEl && totalSlides) {
+  carouselEl.setAttribute('role', 'region');
+  carouselEl.setAttribute('aria-label', 'Carrossel de destaques');
+  dots.forEach((dot, index) => {
+    dot.setAttribute('aria-controls', 'carousel');
+    dot.setAttribute('aria-label', `Ir para o slide ${index + 1}`);
+  });
+
+  showSlide(currentSlide);
   startCarousel();
 
   carouselEl.addEventListener('mouseenter', () => clearInterval(carouselInterval));
   carouselEl.addEventListener('mouseleave', startCarousel);
+  carouselEl.addEventListener('focusin', () => clearInterval(carouselInterval));
+  carouselEl.addEventListener('focusout', () => {
+    if (!document.querySelector('.modal.open')) {
+      startCarousel();
+    }
+  });
 
   let startX = 0;
   carouselEl.addEventListener('touchstart', (event) => {
@@ -87,17 +115,10 @@ function toggleMenu() {
   document.body.classList.toggle('menu-open', !expanded);
   hamburger.setAttribute('aria-expanded', String(!expanded));
   hamburger.setAttribute('aria-label', expanded ? 'Abrir menu principal' : 'Fechar menu principal');
+
   if (backdrop) {
     backdrop.hidden = expanded;
     backdrop.classList.toggle('active', !expanded);
-  }
-}
-
-function toggleSubmenu(event) {
-  const submenu = event.currentTarget.nextElementSibling;
-  if (window.innerWidth <= 768 && submenu) {
-    event.preventDefault();
-    submenu.classList.toggle('open');
   }
 }
 
@@ -122,32 +143,81 @@ function closeMenu() {
   }
 
   document.body.classList.remove('menu-open');
-
   document.querySelectorAll('.submenu.open').forEach((submenu) => submenu.classList.remove('open'));
 }
 
-document.querySelectorAll('nav a').forEach((link) => {
-  link.addEventListener('click', () => closeMenu());
-});
+function getFocusableElements(container) {
+  return Array.from(container.querySelectorAll(focusableSelector)).filter((element) => !element.hasAttribute('hidden'));
+}
 
-function openTeamModal() {
-  const modal = document.getElementById('teamModal');
+function trapFocus(event, container) {
+  if (event.key !== 'Tab') {
+    return;
+  }
+
+  const focusableElements = getFocusableElements(container);
+  if (!focusableElements.length) {
+    return;
+  }
+
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements[focusableElements.length - 1];
+
+  if (event.shiftKey && document.activeElement === firstElement) {
+    event.preventDefault();
+    lastElement.focus();
+  }
+
+  if (!event.shiftKey && document.activeElement === lastElement) {
+    event.preventDefault();
+    firstElement.focus();
+  }
+}
+
+function openModal(modalId, initialFocusSelector) {
+  const modal = document.getElementById(modalId);
   if (!modal) {
     return;
   }
 
+  lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
   modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
+
+  const initialFocus = initialFocusSelector ? modal.querySelector(initialFocusSelector) : null;
+  const fallbackFocus = initialFocus || modal.querySelector(focusableSelector);
+  if (fallbackFocus instanceof HTMLElement) {
+    fallbackFocus.focus();
+  }
 }
 
-function closeTeamModal() {
-  const modal = document.getElementById('teamModal');
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
   if (!modal) {
     return;
   }
 
   modal.classList.remove('open');
+  modal.setAttribute('aria-hidden', 'true');
   document.body.classList.remove('modal-open');
+
+  if (lastFocusedElement instanceof HTMLElement) {
+    lastFocusedElement.focus();
+    lastFocusedElement = null;
+  }
+}
+
+document.querySelectorAll('nav a').forEach((link) => {
+  link.addEventListener('click', closeMenu);
+});
+
+function openTeamModal() {
+  openModal('teamModal', '.modal-header button');
+}
+
+function closeTeamModal() {
+  closeModal('teamModal');
 }
 
 const teamModal = document.getElementById('teamModal');
@@ -157,30 +227,19 @@ if (teamModal) {
       closeTeamModal();
     }
   });
+  teamModal.addEventListener('keydown', (event) => trapFocus(event, teamModal));
 }
 
 function openLoginModal() {
-  const modal = document.getElementById('loginModal');
   const feedback = document.getElementById('loginFeedback');
-  if (!modal) {
-    return;
-  }
-
-  modal.classList.add('open');
-  document.body.classList.add('modal-open');
+  openModal('loginModal', '#loginName');
   if (feedback) {
     feedback.textContent = '';
   }
 }
 
 function closeLoginModal() {
-  const modal = document.getElementById('loginModal');
-  if (!modal) {
-    return;
-  }
-
-  modal.classList.remove('open');
-  document.body.classList.remove('modal-open');
+  closeModal('loginModal');
 }
 
 function openImageModal(src, caption) {
@@ -192,6 +251,7 @@ function openImageModal(src, caption) {
     return;
   }
 
+  lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
   image.src = src;
   image.alt = caption;
   captionEl.textContent = caption;
@@ -215,6 +275,11 @@ function closeImageModal() {
   image.alt = '';
   captionEl.textContent = '';
   document.body.classList.remove('modal-open');
+
+  if (lastFocusedElement instanceof HTMLElement) {
+    lastFocusedElement.focus();
+    lastFocusedElement = null;
+  }
 }
 
 function updateUserInterface() {
@@ -265,7 +330,7 @@ function updateUserInterface() {
     userStatus.hidden = false;
   }
   if (greeting) {
-    greeting.textContent = `Ol\u00E1, ${user.name.trim().split(/\s+/)[0]}`;
+    greeting.textContent = `Olá, ${user.name.trim().split(/\s+/)[0]}`;
   }
 }
 
@@ -287,7 +352,7 @@ if (loginForm) {
 
     if (name.length < 3 || password.length < 6) {
       if (feedback) {
-        feedback.textContent = 'Preencha um nome v\u00E1lido e uma senha com pelo menos 6 caracteres.';
+        feedback.textContent = 'Preencha um nome válido e uma senha com pelo menos 6 caracteres.';
       }
       return;
     }
@@ -311,6 +376,7 @@ if (loginModal) {
       closeLoginModal();
     }
   });
+  loginModal.addEventListener('keydown', (event) => trapFocus(event, loginModal));
 }
 
 const imageModal = document.getElementById('imageModal');
@@ -347,18 +413,22 @@ if (contactForm) {
     if (!contactForm.reportValidity()) {
       return;
     }
+
     const feedback = document.getElementById('contactSuccess');
     const submitButton = contactForm.querySelector('button[type="submit"]');
     const formData = new FormData(contactForm);
+
     if (feedback) {
       feedback.hidden = true;
       feedback.classList.remove('is-error');
       feedback.textContent = '';
     }
+
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.textContent = 'Enviando...';
     }
+
     try {
       const response = await fetch(contactForm.action, {
         method: contactForm.method,
@@ -367,9 +437,11 @@ if (contactForm) {
           Accept: 'application/json',
         },
       });
+
       if (!response.ok) {
         throw new Error(`Request failed with status ${response.status}`);
       }
+
       contactForm.reset();
       if (feedback) {
         feedback.hidden = false;
@@ -379,7 +451,7 @@ if (contactForm) {
       if (feedback) {
         feedback.hidden = false;
         feedback.classList.add('is-error');
-        feedback.textContent = 'N\u00E3o foi poss\u00EDvel enviar a mensagem agora. Tente novamente em instantes.';
+        feedback.textContent = 'Não foi possível enviar a mensagem agora. Tente novamente em instantes.';
       }
     } finally {
       if (submitButton) {
@@ -406,8 +478,13 @@ document.querySelectorAll('.filter-btn').forEach((button) => {
 });
 
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'ArrowRight') nextSlide();
-  if (event.key === 'ArrowLeft') prevSlide();
+  const activeModal = document.querySelector('.modal.open');
+
+  if (!activeModal) {
+    if (event.key === 'ArrowRight') nextSlide();
+    if (event.key === 'ArrowLeft') prevSlide();
+  }
+
   if (event.key === 'Escape') {
     closeTeamModal();
     closeLoginModal();
@@ -433,4 +510,3 @@ if (menuBackdropEl) {
 }
 
 updateUserInterface();
-
