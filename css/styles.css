@@ -883,7 +883,7 @@ nav a:hover {
 .team-list-photo {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 20%;
   object-fit: cover;
   flex-shrink: 0;
 }
