@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="David Perfeito Leôncio" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .article-carousel {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto 20px;
+    }
+
+    .article-carousel-track {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      box-shadow: 0 18px 36px rgba(15, 35, 60, 0.16);
+      background: #e9eef5;
+    }
+
+    .article-carousel-slide {
+      display: none;
+    }
+
+    .article-carousel-slide.active {
+      display: block;
+    }
+
+    .article-carousel-slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    .article-carousel-control {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 999px;
+      background: rgba(30, 58, 95, 0.86);
+      color: #fff;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .article-carousel-control:hover {
+      background: rgba(20, 39, 64, 0.96);
+    }
+
+    .article-carousel-control.prev {
+      left: 14px;
+    }
+
+    .article-carousel-control.next {
+      right: 14px;
+    }
+
+    .article-carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .article-carousel-dot {
+      width: 12px;
+      height: 12px;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(30, 58, 95, 0.24);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .article-carousel-dot.active {
+      background: #1e3a5f;
+      transform: scale(1.15);
+    }
+
+    @media (max-width: 800px) {
+      .article-carousel-control {
+        width: 36px;
+        height: 36px;
+        font-size: 22px;
+      }
+
+      .article-carousel-control.prev {
+        left: 10px;
+      }
+
+      .article-carousel-control.next {
+        right: 10px;
+      }
+    }
+  </style>
+  <title>Fórum Regional de Saúde Mental - ESPPI</title>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <div class="logo">
+        <img src="../imagem/logo.svg" alt="Logo Escola de Saúde" />
+        <span>Escola de Saúde Pública do Piauí</span>
+      </div>
+      <button class="hamburger" type="button" aria-label="Abrir menu principal" aria-controls="menu"
+        aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav>
+        <ul id="menu">
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#about">Sobre</a></li>
+          <li><a href="../noticias.html">Notícias</a></li>
+          <li><a href="../galeria.html">Galeria</a></li>
+          <li><a href="../index.html#equipe">Equipe</a></li>
+          <li><a href="../cursos.html">Cursos</a></li>
+          <li><a href="../index.html#contact">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="menu-backdrop" hidden></div>
+      <div class="header-actions">
+        <button class="btn-login" type="button" onclick="openLoginModal()">Entrar</button>
+        <div class="user-status" id="userStatus" hidden>
+          <span id="userGreeting">Olá</span>
+          <button class="btn-logout" type="button" onclick="logoutUser()">Sair</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <section class="news-section article-page">
+      <div class="article-shell">
+        <div class="publice">Publicado em 30 mar 2026 • Aviso</div>
+        <h1 class="article-title">Prorrogação de prazo para inscrições de Seleção de Discentes</h1>
+        <div class="article-carousel" aria-label="Carrossel de imagens da campanha de vacinação">
+          <div class="article-carousel-track">
+            <div class="article-carousel-slide active">
+              <img src="../imagem/noticia/AnexoProcessoSeletivo07042026.png" alt="Cartaz do Dia D de vacinação contra gripe" class="news-image" />
+            </div>
+            <div class="article-carousel-slide">
+              <img src="../imagem/noticia/SelecaoDiscentes07042026.png" alt="Cartaz da ação de vacinação do dia 28 de março de 2026" class="news-image" />
+            </div>
+            <button class="article-carousel-control prev" type="button" aria-label="Imagem anterior">&#8249;</button>
+            <button class="article-carousel-control next" type="button" aria-label="Próxima imagem">&#8250;</button>
+          </div>
+          <div class="article-carousel-dots" aria-label="Selecionar imagem do carrossel">
+            <button class="article-carousel-dot active" type="button" aria-label="Mostrar primeira imagem"></button>
+            <button class="article-carousel-dot" type="button" aria-label="Mostrar segunda imagem"></button>
+          </div>
+        </div>
+        <article class="article-content">
+            <h3>🚨 INSCRIÇÕES PRORROGADAS PARA SELEÇÃO DE DISCENTES – ATENÇÃO AO NOVO PRAZO!</h3>
+          <p>As inscrições para o processo seletivo  aberto, pela Escola Nacional de Saúde Pública Sérgio Arouca (ENSP/Fiocruz), para <strong>o curso da RedEscola</strong> e sua seleção de discentes no aperfeiçoamento: “ Encontros educativos e práticas pedagógicas no cotidiano do SUS 2026”. foram <strong>PRORROGADAS ATÉ 07/04/2026</strong>.</p>
+          <p>O curso é uma oferta nacional, com 503 vagas , voltado a docentes das Escolas de Saúde Pública e trabalhadores(as) do SUS que atuam em processos educativos.</p>
+          <p>📚 Sobre o curso 
+Curso de 180 horas , com abrangência nacional, voltado a docentes das Escolas de Saúde Pública e trabalhadores do SUS envolvidos em atividades educativas. A formação promove o intercâmbio de experiências e o fortalecimento das práticas pedagógicas e dos processos educativos no Sistema Único de Saúde.</p>
+<p>💡 O curso integra o projeto “Fortalecimento da Rede Brasileira de Escolas de Saúde Pública: Formação e Qualificação dos Trabalhadores do SUS”, desenvolvido no âmbito da cooperação entre a Escola Nacional de Saúde Pública Sérgio Arouca (ENSP/Fiocruz) e a Secretaria de Gestão do Trabalho e da Educação na Saúde do Ministério da Saúde (SGTES/MS).
+A RedEscola está vinculada à Vice-Direção de Escola de Governo em Saúde (VDEGS/ENSP/Fiocruz), instância responsável pela articulação de parcerias, cooperação técnica e ações formativas voltadas ao fortalecimento institucional e à qualificação dos trabalhadores do Sistema Único de Saúde.</p>
+          <p>Novo prazo: <strong>até 07 de abril de 2026 </strong>.</p>
+          <p>Horário limite: <strong>23:59 h (horário de Brasília) </strong>.</p>
+          <br>
+          <h3>🔗 Acesse o edital do curso</h3>
+          <p> Portal de Ensino da ENSP: <a href="https://ensino.ensp.fiocruz.br/pt-br/cursos/qualificacao-profissional/aperfeicoamento/processos-seletivos/840" target="_blank" rel="noopener noreferrer">Edital do Curso</a></p>
+            <p>Plataforma SIGALS: <a href="https://www.sigals.fiocruz.br/inscricao/cadastro.do?acao=telaInicial&codCL=28543&codECL=27179&codI=471" target="_blank" rel="noopener noreferrer">Inscrição no Curso</a></p>
+            <p>📩 Dúvidas ou informações: <a href="mailto:pseletivo.ensp@fiocruz.br" target="_blank" rel="noopener noreferrer">pseletivo.ensp@fiocruz.br</a></p>
+            <p>de segunda a sexta-feira, das 8h30 às 16h30.</p>
+            <strong>⚠️ Atenção: esse é o prazo final para as inscrições.</strong>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Sobre a Escola</h3>
+        <p>A Escola de Saúde Pública do Piauí é uma instituição dedicada à formação de profissionais qualificados na área de saúde pública, com excelência e inovação.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/escolasaudepi/" title="Instagram" aria-label="Instagram">IG</a>
+          <a href="https://www.youtube.com/@escoladesaudepublicadopiaui" title="YouTube" aria-label="YouTube">YT</a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h3>Links Rápidos</h3>
+        <ul>
+          <li><a href="../index.html#home">Home</a></li>
+          <li><a href="../index.html#about">Sobre Nós</a></li>
+          <li><a href="../galeria.html">Galeria</a></li>
+          <li><a href="../cursos.html">Cursos</a></li>
+          <li><a href="../noticias.html">Notícias</a></li>
+          <li><a href="../index.html#contact">Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Cursos</h3>
+        <ul>
+          <li><a href="../cursos.html">Equidade em Saúde</a></li>
+          <li><a href="../cursos.html">Vigilância Epidemiológica</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Contato</h3>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:esppi21@gmail.com">esppi21@gmail.com</a></li>
+          <li><strong>Telefone:</strong> <a href="tel:+558632215000">(86) 3221-5000</a></li>
+          <li><strong>Endereço:</strong> Teresina, Piauí - Brasil</li>
+          <li><strong>Horário:</strong> Seg-Sex: 7h às 13h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Escola de Saúde Pública do Piauí. Todos os direitos reservados.</p>
+      <p>Desenvolvido por David Perfeito Leôncio para a Escola de Saúde Pública do Piauí.</p>
+    </div>
+  </footer>
+
+  <div id="loginModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="modal-content modal-content-login">
+      <div class="modal-header">
+        <h3 id="loginModalTitle">Login do Usuário</h3>
+        <button aria-label="Fechar" type="button" onclick="closeLoginModal()">×</button>
+      </div>
+      <p class="login-intro">Acesse sua área para acompanhar cursos, novidades e comunicações da escola.</p>
+      <form id="loginForm" class="login-form">
+        <label for="loginName">Nome</label>
+        <input id="loginName" name="loginName" type="text" placeholder="Seu nome completo" required />
+        <label for="loginEmail">Email</label>
+        <input id="loginEmail" name="loginEmail" type="email" placeholder="usuario@exemplo.com" required />
+        <label for="loginPassword">Senha</label>
+        <input id="loginPassword" name="loginPassword" type="password" placeholder="Digite sua senha" minlength="6" required />
+        <button class="btn" type="submit">Entrar</button>
+        <p class="login-feedback" id="loginFeedback" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const carousel = document.querySelector('.article-carousel');
+
+      if (!carousel) {
+        return;
+      }
+
+      const slides = Array.from(carousel.querySelectorAll('.article-carousel-slide'));
+      const dots = Array.from(carousel.querySelectorAll('.article-carousel-dot'));
+      const prevButton = carousel.querySelector('.article-carousel-control.prev');
+      const nextButton = carousel.querySelector('.article-carousel-control.next');
+      let currentIndex = 0;
+
+      function renderSlide(index) {
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle('active', slideIndex === index);
+        });
+
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle('active', dotIndex === index);
+          dot.setAttribute('aria-current', dotIndex === index ? 'true' : 'false');
+        });
+      }
+
+      function goToSlide(index) {
+        currentIndex = (index + slides.length) % slides.length;
+        renderSlide(currentIndex);
+      }
+
+      prevButton.addEventListener('click', function () {
+        goToSlide(currentIndex - 1);
+      });
+
+      nextButton.addEventListener('click', function () {
+        goToSlide(currentIndex + 1);
+      });
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', function () {
+          goToSlide(index);
+        });
+      });
+
+      renderSlide(currentIndex);
+    }());
+  </script>
+  <script src="../script.js"></script>
+</body>
+</html>
