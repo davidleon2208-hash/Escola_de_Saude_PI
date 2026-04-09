@@ -6,6 +6,8 @@ let carouselInterval = null;
 const userStorageKey = 'esppi_user';
 const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 let lastFocusedElement = null;
+const teamGalleryImages = Array.from(document.querySelectorAll('#teamModal .team-list-photo'));
+let currentTeamImageIndex = 0;
 
 function updateCarouselStatus(index) {
   const status = document.getElementById('carouselStatus');
@@ -242,22 +244,31 @@ function closeLoginModal() {
   closeModal('loginModal');
 }
 
-function openImageModal(src, caption) {
+function openImageModal(index) {
   const modal = document.getElementById('imageModal');
   const image = document.getElementById('imageModalImg');
   const captionEl = document.getElementById('imageModalCaption');
+  const selectedImage = teamGalleryImages[index];
 
-  if (!modal || !image || !captionEl) {
+  if (!modal || !image || !captionEl || !selectedImage) {
     return;
   }
 
-  lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-  image.src = src;
-  image.alt = caption;
-  captionEl.textContent = caption;
-  modal.classList.add('active');
+  currentTeamImageIndex = index;
+  if (!modal.classList.contains('open')) {
+    lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+  }
+  image.src = selectedImage.currentSrc || selectedImage.src;
+  image.alt = selectedImage.alt;
+  captionEl.textContent = selectedImage.closest('li')?.querySelector('strong')?.textContent || selectedImage.alt;
+  modal.classList.add('open');
   modal.setAttribute('aria-hidden', 'false');
   document.body.classList.add('modal-open');
+
+  const closeButton = modal.querySelector('.image-modal-close');
+  if (closeButton instanceof HTMLElement) {
+    closeButton.focus();
+  }
 }
 
 function closeImageModal() {
@@ -269,7 +280,7 @@ function closeImageModal() {
     return;
   }
 
-  modal.classList.remove('active');
+  modal.classList.remove('open');
   modal.setAttribute('aria-hidden', 'true');
   image.src = '';
   image.alt = '';
@@ -280,6 +291,23 @@ function closeImageModal() {
     lastFocusedElement.focus();
     lastFocusedElement = null;
   }
+}
+
+function showTeamImage(index) {
+  if (!teamGalleryImages.length) {
+    return;
+  }
+
+  const normalizedIndex = (index + teamGalleryImages.length) % teamGalleryImages.length;
+  openImageModal(normalizedIndex);
+}
+
+function showPreviousTeamImage() {
+  showTeamImage(currentTeamImageIndex - 1);
+}
+
+function showNextTeamImage() {
+  showTeamImage(currentTeamImageIndex + 1);
 }
 
 function updateUserInterface() {
@@ -386,7 +414,19 @@ if (imageModal) {
       closeImageModal();
     }
   });
+  imageModal.addEventListener('keydown', (event) => trapFocus(event, imageModal));
 }
+
+teamGalleryImages.forEach((img, index) => {
+  const trigger = img.closest('.team-list-photo-button');
+  if (!trigger) {
+    return;
+  }
+
+  trigger.addEventListener('click', () => {
+    showTeamImage(index);
+  });
+});
 
 document.querySelectorAll('.team-photo').forEach((img) => {
   const initials = img.parentElement.querySelector('.team-initials');
@@ -479,16 +519,26 @@ document.querySelectorAll('.filter-btn').forEach((button) => {
 
 document.addEventListener('keydown', (event) => {
   const activeModal = document.querySelector('.modal.open');
+  const isImageModalOpen = imageModal?.classList.contains('open');
 
   if (!activeModal) {
     if (event.key === 'ArrowRight') nextSlide();
     if (event.key === 'ArrowLeft') prevSlide();
   }
 
+  if (isImageModalOpen) {
+    if (event.key === 'ArrowRight') showNextTeamImage();
+    if (event.key === 'ArrowLeft') showPreviousTeamImage();
+  }
+
   if (event.key === 'Escape') {
+    if (isImageModalOpen) {
+      closeImageModal();
+      return;
+    }
+
     closeTeamModal();
     closeLoginModal();
-    closeImageModal();
     closeMenu();
   }
 });

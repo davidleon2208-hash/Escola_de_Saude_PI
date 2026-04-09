@@ -887,6 +887,23 @@ nav a:hover {
   object-fit: cover;
   flex-shrink: 0;
 }
+.team-list-photo-button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  border-radius: 22%;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.team-list-photo-button:hover {
+  transform: scale(1.04);
+}
+
+.team-list-photo-button:focus-visible {
+  box-shadow: 0 0 0 4px rgba(255, 235, 59, 0.45);
+}
 
 /* SeÃ§Ãµes: ServiÃ§os, NotÃ­cias, Eventos, Projetos */
 .services-section {
@@ -1759,6 +1776,81 @@ body.modal-open {
   max-width: 480px;
 }
 
+.image-modal {
+  background: rgba(7, 17, 32, 0.92);
+  z-index: 260;
+}
+
+.image-modal-content {
+  position: relative;
+  width: min(100%, 1280px);
+  min-height: min(88vh, 820px);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.image-modal-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.image-modal-figure img {
+  width: 100%;
+  max-width: 100%;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+}
+
+.image-modal-figure figcaption {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.image-modal-close,
+.image-modal-nav {
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.image-modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 30px;
+}
+
+.image-modal-nav {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 28px;
+}
+
+.image-modal-close:hover,
+.image-modal-nav:hover {
+  background: rgba(255, 255, 255, 0.24);
+  transform: scale(1.04);
+}
+
 .login-intro {
   color: #5f6b7a;
   margin-bottom: 18px;
@@ -2233,6 +2325,37 @@ nav {
   .team-list-photo {
     width: 76px;
     height: 76px;
+  }
+
+  .image-modal-content {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding-top: 54px;
+  }
+
+  .image-modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+  }
+
+  .image-modal-nav.prev {
+    left: 0;
+  }
+
+  .image-modal-nav.next {
+    right: 0;
+  }
+
+  .image-modal-figure img {
+    max-height: 68vh;
+  }
+
+  .image-modal-figure figcaption {
+    font-size: 16px;
   }
 
   .filter-btn {
